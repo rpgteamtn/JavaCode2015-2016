@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 /**
- * Created by Natalie (Y'know, that awesome chick everybody totally loves :P) on 10/17/2015.
+ * Created by Natalie on 10/17/2015.
  */
 public class DebrisLiftDriver extends OpMode
 {
