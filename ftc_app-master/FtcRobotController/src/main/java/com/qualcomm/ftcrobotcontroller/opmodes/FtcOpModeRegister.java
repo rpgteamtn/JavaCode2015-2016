@@ -31,6 +31,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import com.qualcomm.ftcrobotcontroller.opmodes.other.K9TeleOp;
+import com.qualcomm.ftcrobotcontroller.opmodes.other.MatrixK9TeleOp;
+import com.qualcomm.ftcrobotcontroller.opmodes.other.NullOp;
+import com.qualcomm.ftcrobotcontroller.opmodes.other.PushBotAuto;
+import com.qualcomm.ftcrobotcontroller.opmodes.other.PushBotManual;
 import com.qualcomm.robotcore.eventloop.opmode.OpModeManager;
 import com.qualcomm.robotcore.eventloop.opmode.OpModeRegister;
 
