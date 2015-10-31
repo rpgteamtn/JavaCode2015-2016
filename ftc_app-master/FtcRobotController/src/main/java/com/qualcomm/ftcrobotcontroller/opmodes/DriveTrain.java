@@ -19,10 +19,10 @@ public class DriveTrain extends OpMode {
         // Connects program motors to actual motors
         // Applys to individual motors
         // Programs for ran on driverMotor now apply to robot motors
-        driveMotorLB = hardwareMap.dcMotor.get("leftFront_drive");
-        driveMotorLF = hardwareMap.dcMotor.get("leftBack_drive");
-        driveMotorRF = hardwareMap.dcMotor.get("rightFront_drive");
-        driveMotorRB = hardwareMap.dcMotor.get("rightBack_drive");
+        driveMotorLB = hardwareMap.dcMotor.get("driveMotorLB");
+        driveMotorLF = hardwareMap.dcMotor.get("driveMotorLF");
+        driveMotorRF = hardwareMap.dcMotor.get("driveMotorRF");
+        driveMotorRB = hardwareMap.dcMotor.get("driveMotorRB");
         DriveDriver = new DriveDriver(driveMotorLB, driveMotorLF, driveMotorRB, driveMotorRF);
 
     }
