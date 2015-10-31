@@ -112,4 +112,9 @@ public class DriveDriver
     setMotors(power, power);
   }
 
+  public void turn(double Lpower, double Rpower, int time)
+  {
+
+  }
+
 }
