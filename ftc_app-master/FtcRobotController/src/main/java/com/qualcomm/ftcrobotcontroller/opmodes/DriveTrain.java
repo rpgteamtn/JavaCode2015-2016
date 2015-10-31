@@ -1,21 +1,24 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
-
+// Allows use of other classes in program
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import java.lang.Override;
-
+// Defines driveMotors as motors
+// Names class
+// Is public so can use any previous class
 public class DriveTrain extends OpMode {
     DcMotor driveMotorLF;
     DcMotor driveMotorLB;
     DcMotor driveMotorRF;
     DcMotor driveMotorRB;
     DriveDriver DriveDriver;
-
+// Overrides previous function
     @Override
     public void init() {
         // Connects program motors to actual motors
         // Applys to individual motors
+        // Programs for ran on driverMotor now apply to robot motors
         driveMotorLB = hardwareMap.dcMotor.get("leftFront_drive");
         driveMotorLF = hardwareMap.dcMotor.get("leftBack_drive");
         driveMotorRF = hardwareMap.dcMotor.get("rightFront_drive");
@@ -30,8 +33,7 @@ public class DriveTrain extends OpMode {
         float left = -gamepad1.left_stick_y;
         float right = -gamepad1.right_stick_y;
         // Sets power to each motor
-        // Motors on same side move at same power
+        // Automatically connects motors to joystick
         DriveDriver.setMotors(left, right);
-
     }
 }
