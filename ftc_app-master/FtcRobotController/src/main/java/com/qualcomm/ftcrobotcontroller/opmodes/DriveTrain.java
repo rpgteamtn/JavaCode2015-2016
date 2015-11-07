@@ -15,7 +15,8 @@ public class DriveTrain extends OpMode {
     DriveDriver DriveDriver;
 // Overrides previous function
     @Override
-    public void init() {
+    public void init()
+    {
         // Connects program motors to actual motors
         // Applys to individual motors
         // Programs for ran on driverMotor now apply to robot motors
