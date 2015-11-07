@@ -24,6 +24,8 @@ public class DriveTrain extends OpMode {
         driveMotorRF = hardwareMap.dcMotor.get("driveMotorRF");
         driveMotorRB = hardwareMap.dcMotor.get("driveMotorRB");
         DriveDriver = new DriveDriver(driveMotorLB, driveMotorLF, driveMotorRB, driveMotorRF);
+        driveMotorRF.setDirection(DcMotor.Direction.REVERSE);
+        driveMotorRB.setDirection(DcMotor.Direction.REVERSE);
 
     }
     @Override
