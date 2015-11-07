@@ -112,20 +112,10 @@ public class DriveDriver
     setMotors(power, power);
   }
 
-  public void turnRight(double Lpower, double Rpower, int time)
+  public void turn(double Lpower, double Rpower, int time)
   {
-      Lpower = -0.5;
-      Rpower = 0.5;
+    setMotors(Lpower, Rpower);
 
-      setMotors(Lpower, Rpower);
-
+    sleep(time);
   }
-    public void turnLeft(double Lpower, double Rpower, int time)
-    {
-
-        Lpower = 0.5;
-        Rpower = -0.5;
-
-        setMotors(Lpower, Rpower);
-    }
 }
