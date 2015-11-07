@@ -62,9 +62,9 @@ public class RPGautoOpmode extends LinearOpMode {
             {
                 if ((climers = true) || (beacon = true)) {
                     DriveDriver.moveDist(0, 0);
-                   // DriveDriver.turn(0, 0, 0);
+                    DriveDriver.turn(0, 0, 0);
                     DriveDriver.moveDist(0, 0);
-                    //turn
+                    DriveDriver.turn(0, 0, 0);
                     DriveDriver.moveDist(0, 0);
 
                     if ((climers = true) || (beacon = true)) {
@@ -79,22 +79,22 @@ public class RPGautoOpmode extends LinearOpMode {
 
                     DriveDriver.moveDist(0, 0);//back up
                     if (whichRamp = true) {
-                        //turnD
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
-                        //turnE
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
                     } else {
-                        //turn
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
-                        //turn
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
                     }
 
                 } else {
                     DriveDriver.moveDist(0, 0);
-                    //turn
+                    DriveDriver.turn(0, 0, 0);
                     DriveDriver.moveDist(0, 0);
-                    //turn
+                    DriveDriver.turn(0, 0, 0);
                     DriveDriver.moveDist(0, 0);
                 }
                 switch (rampHight) {
@@ -111,7 +111,7 @@ public class RPGautoOpmode extends LinearOpMode {
             {
                 if ((climers = true) || (beacon = true)) {
                     DriveDriver.moveDist(0, 0);
-                    //turnC 45???
+                    DriveDriver.turn(0, 0, 0);
                     DriveDriver.moveDist(0, 0);
 
                     if ((climers = true) || (beacon = true)) {
@@ -126,25 +126,25 @@ public class RPGautoOpmode extends LinearOpMode {
 
                     DriveDriver.moveDist(0, 0);//back up
                     if (whichRamp = true) {
-                        //turnD
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
-                        //turnE
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
                     } else {
-                        //turn
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
-                        //turn
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
                     }
 
                 } else {
                     if (whichRamp = true) {
                         DriveDriver.moveDist(0, 0);
-                        //turnD
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
                     } else {
                         DriveDriver.moveDist(0, 0);
-                        //turn
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
                     }
 
@@ -168,9 +168,9 @@ public class RPGautoOpmode extends LinearOpMode {
             {
                 if ((climers = true) || (beacon = true)) {
                     DriveDriver.moveDist(0, 0);
-                    //turnC 45???
+                    DriveDriver.turn(0, 0, 0);
                     DriveDriver.moveDist(0, 0);
-                    //turn
+                    DriveDriver.turn(0, 0, 0);
                     DriveDriver.moveDist(0, 0);
 
                     if ((climers = true) || (beacon = true)) {
@@ -185,22 +185,22 @@ public class RPGautoOpmode extends LinearOpMode {
 
                     DriveDriver.moveDist(0, 0);//back up
                     if (whichRamp = true) {
-                        //turnD
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
-                        //turnE
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
                     } else {
-                        //turn
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
-                        //turn
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
                     }
 
                 } else {
                     DriveDriver.moveDist(0, 0);
-                    //turn
+                    DriveDriver.turn(0, 0, 0);
                     DriveDriver.moveDist(0, 0);
-                    //turn
+                    DriveDriver.turn(0, 0, 0);
                     DriveDriver.moveDist(0, 0);
                 }
                 switch (rampHight) {
@@ -218,7 +218,7 @@ public class RPGautoOpmode extends LinearOpMode {
             {
                 if ((climers = true) || (beacon = true)) {
                     DriveDriver.moveDist(0, 0);
-                    //turnC 45???
+                    DriveDriver.turn(0, 0, 0);
                     DriveDriver.moveDist(0, 0);
 
                     if ((climers = true) || (beacon = true)) {
@@ -233,25 +233,25 @@ public class RPGautoOpmode extends LinearOpMode {
 
                     DriveDriver.moveDist(0, 0);//back up
                     if (whichRamp = true) {
-                        //turnD
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
-                        //turnE
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
                     } else {
-                        //turn
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
-                        //turn
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
                     }
 
                 } else {
                     if (whichRamp = true) {
                         DriveDriver.moveDist(0, 0);
-                        //turnD
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
                     } else {
                         DriveDriver.moveDist(0, 0);
-                        //turn
+                        DriveDriver.turn(0, 0, 0);
                         DriveDriver.moveDist(0, 0);
                     }
 
