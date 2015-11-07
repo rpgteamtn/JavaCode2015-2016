@@ -115,7 +115,9 @@ public class DriveDriver
   public void turn(double Lpower, double Rpower, int time)
   {
     setMotors(Lpower, Rpower);
+    double newTime = time * 1000;
 
-    sleep(time);
+    sleep(newTime);
+
   }
 }
