@@ -71,8 +71,8 @@ public class DriveDriver
   {
 
     int ENCODER_CPR = 1440;     //Encoder Counts per Revolution
-    double GEAR_RATIO = 1;      //Gear Ratio
-    int WHEEL_DIAMETER = 0;     //Diameter of the wheel in inches
+    double GEAR_RATIO = 2/1;      //Gear Ratio
+    int WHEEL_DIAMETER = 2;     //Diameter of the wheel in inches
 
    double CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER;
     double ROTATIONS = Dist / CIRCUMFERENCE;
@@ -112,11 +112,22 @@ public class DriveDriver
     setMotors(power, power);
   }
 
-  public void turn(double Lpower, double Rpower, int time)
+  public void turn(double Degree, double power)
   {
-    setMotors(Lpower, Rpower);
-    double newTime = time * 1000;
+    Degree = Degree*7.375;
+    Degree= Degree*4;
 
-    //sleep(newTime);
+    resetEncoders();
+    driveMotorLB.setTargetPosition((int) Degree);
+    driveMotorLF.setTargetPosition((int) Degree);
+    driveMotorRB.setTargetPosition((int) Degree*-1);
+    driveMotorRF.setTargetPosition((int) Degree*-1);
+
+    driveMotorLB.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+    driveMotorLF.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+    driveMotorRB.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+    driveMotorRF.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+
+    setMotors(power, power*-1);
   }
 }
