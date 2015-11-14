@@ -67,7 +67,7 @@ public class DriveDriver
 
 //this function gets an input of the distance you want to travel IN INCHES and returns
 // the number of clicks that the encoder needs to travel
-  public double driveEncoderMath(int Dist)
+  public double driveEncoderMath(double Dist)
   {
 
     int ENCODER_CPR = 1440;     //Encoder Counts per Revolution
@@ -91,7 +91,7 @@ public class DriveDriver
   }
 
 //gets inputs of the distance IN INCHES and power and goes the distance you set at the power you set
-  public void moveDist(int Dist, double power)
+  public void moveDist(double Dist, double power)
   {
     double distToGo = driveEncoderMath(Dist);// uses the Function driveEncoderMath to convert inchs to clicks
     resetEncoders();// sets the encoders to 0 so that we get an accurate distance
@@ -116,6 +116,6 @@ public class DriveDriver
   {
     setMotors(Lpower, Rpower);
 
-    sleep(time);
+   // sleep(time);
   }
 }
