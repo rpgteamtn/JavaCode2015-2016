@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 /**
  * Created by Natalie on 10/17/2015.
  */
-public class DebrisLiftDriver extends OpMode
+public class DebrisLift extends OpMode
 {
 
     DcMotor debrisLiftMotor;
