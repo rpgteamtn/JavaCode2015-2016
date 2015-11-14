@@ -30,6 +30,8 @@ public class RPGautoOpmode extends LinearOpMode {
     double distE = 14;
     double distF = 40;
     double distG = -0;
+    double distI= 41;
+    double distJ = 51
 
     double distP = 15;
     double distL = 18;
@@ -40,6 +42,7 @@ public class RPGautoOpmode extends LinearOpMode {
     double angB = 135;
     double angC = 90;
     double angD = 45;
+    double angE = 135;
 
     double power = .7;
 
@@ -85,11 +88,11 @@ public class RPGautoOpmode extends LinearOpMode {
             if (start = true)// near to mountain
             {
                 if ((climers = true) || (beacon = true)) {
-                    DriveDriver.moveDist(0, 0);
-                    DriveDriver.turn(0, 0, 0);
-                    DriveDriver.moveDist(0, 0);
-                    DriveDriver.turn(0, 0, 0);
-                    DriveDriver.moveDist(0, 0);
+                    DriveDriver.moveDist(distI, power);
+                    DriveDriver.turn(angE, power);//ang I
+                    DriveDriver.moveDist((distA+distB-distJ), power);
+                    DriveDriver.turn(reverseAngle(angB), power);// blue angle B
+                    DriveDriver.moveDist((distC + distE), power);
 
                     if ((climers = true) || (beacon = true)) {
                         //do climers and beacons
