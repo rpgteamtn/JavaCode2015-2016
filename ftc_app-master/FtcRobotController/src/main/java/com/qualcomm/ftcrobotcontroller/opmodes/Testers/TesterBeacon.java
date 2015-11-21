@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 import java.lang.Override;
 
-public class EncoderBeacon extends OpMode
+public class TesterBeacon extends OpMode
 {
     DcMotor beaconMotor;
 
