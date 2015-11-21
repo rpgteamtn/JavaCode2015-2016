@@ -17,6 +17,8 @@ public class DriveTrain extends OpMode {
     DcMotor driveMotorRF;
     DcMotor driveMotorRB;
     DriveDriver DriveDriver;
+    double mediumPower = 0.75;
+    double smallPower = 0.5;
 // Overrides previous function
     @Override
     public void init()
@@ -36,11 +38,25 @@ public class DriveTrain extends OpMode {
     @Override
     public void loop() {
         // Sets values for joystick
-        // Note: Applys to sides of robot not each motor
+        // Note: Applies to sides of robot not each motor
         float left = -gamepad1.left_stick_y;
         float right = -gamepad1.right_stick_y;
         // Sets power to each motor
         // Automatically connects motors to joystick
         DriveDriver.setMotors(left, right);
+        while(-gamepad1.right_bumper == true) {
+            float left = -gamepad1.left_stick_y;
+            float right = -gamepad1.right_stick_y;
+            DriveDriver.setMotors(left * smallPower);
+        }
+        while(-gamepad1.left_bumper == true) {
+            float left = -gamepad1.left_stick_y;
+            float right = -gamepad1.right_stick_y;
+            DriveDriver.setMotors(left * mediumPower);
+
+
+        }
     }
+
+
 }
