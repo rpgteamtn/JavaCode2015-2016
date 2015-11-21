@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 public class DebrisLift extends OpMode
 {
 
-    DcMotor debrisLiftMotor;
+    public DcMotor debrisLiftMotor;
 
     @Override
     public void init()
@@ -34,5 +34,10 @@ public class DebrisLift extends OpMode
         {
             debrisLiftMotor.setPower(0);
         }
+    }
+
+    public DebrisLift(DcMotor DL)
+    {
+        debrisLiftMotor = DL;
     }
 }
