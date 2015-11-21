@@ -9,8 +9,10 @@ public class TesterDebrisLift {
     DebrisLift DebrisLift;
 
     public void DebrisLiftTester() {
-        for (int i = 1; i < 6; i++) {
-            DebrisLift.debrisLiftMotor.setPower(1);
-        }
+        DebrisLift.debrisLiftMotor.setPower(1);
+        DebrisLift.debrisLiftMotor.sleep(10000);
+        DebrisLift.debrisLiftMotor.setPower(-1);
+
+
     }
 }
