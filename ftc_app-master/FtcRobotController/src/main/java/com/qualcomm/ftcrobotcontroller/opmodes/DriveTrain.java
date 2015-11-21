@@ -7,6 +7,10 @@ import java.lang.Override;
 // Defines driveMotors as motors
 // Names class
 // Is public so can use any previous class
+
+/**
+ * Created by Josh
+ */
 public class DriveTrain extends OpMode {
     DcMotor driveMotorLF;
     DcMotor driveMotorLB;
