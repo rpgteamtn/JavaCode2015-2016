@@ -6,19 +6,86 @@ import com.qualcomm.robotcore.hardware.DcMotor;
  * Created by Jonah on 11/21/2015.
  */
 public class AutoOpmodeStratagems {
-    boolean alliance;//blue  is true
+    char alliance;//blue  is true
     char rampHight;
-    boolean whichRamp; //blue  is true
+    char whichRamp; //blue  is true
     boolean climers;
     boolean beacon;
     boolean start;// true is near mountain
 
-    public void PlanA()
+    public void PlanAB()
     {
-
+         alliance='B';
+         rampHight='M';
+         whichRamp='B';
+         climers=true;
+         beacon=true;
+         start=false;
     }
-
-    public AutoOpmodeStratagems(boolean Alliance, char RampHight, boolean WhichRamp;, boolean Climers, boolean Beacon, boolean Start)
+    public void PlanAR()
+    {
+        alliance='R';
+        rampHight='M';
+        whichRamp='R';
+        climers=true;
+        beacon=true;
+        start=false;
+    }
+    public void PlanBB()
+    {
+        alliance='B';
+        rampHight='M';
+        whichRamp='B';
+        climers=true;
+        beacon=true;
+        start=true;
+    }
+    public void PlanBR()
+    {
+        alliance='R';
+        rampHight='M';
+        whichRamp='R';
+        climers=true;
+        beacon=true;
+        start=true;
+    }
+    public void PlanCB()
+    {
+        alliance='B';
+        rampHight='M';
+        whichRamp='B';
+        climers=true;
+        beacon= false;
+        start=false;
+    }
+    public void PlanCR()
+    {
+        alliance='R';
+        rampHight= 'M';
+        whichRamp='R';
+        climers=true;
+        beacon=false;
+        start=false;
+    }
+    public void PlanDB()
+    {
+        alliance='B';
+        rampHight='M';
+        whichRamp='B';
+        climers=true;
+        beacon=false;
+        start=true;
+    }
+    public void PlanDR()
+    {
+        alliance='R';
+        rampHight='M';
+        whichRamp='R';
+        climers=true;
+        beacon=false;
+        start=true;
+    }
+    public AutoOpmodeStratagems(char Alliance, char RampHight, char WhichRamp;, boolean Climers, boolean Beacon, boolean Start)
     {
         alliance = Alliance;
         rampHight = RampHight;
