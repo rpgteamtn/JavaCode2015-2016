@@ -30,5 +30,9 @@ public class DebrisLift extends OpMode
         {
             debrisLiftMotor.setPower(-1);
         }
+        if(gamepad1.x)
+        {
+            debrisLiftMotor.setPower(0);
+        }
     }
 }
