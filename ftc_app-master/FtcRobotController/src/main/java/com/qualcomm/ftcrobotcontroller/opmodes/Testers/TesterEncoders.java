@@ -12,13 +12,13 @@ public class TesterEncoders extends OpMode
     public void init()
     {
         //get references to motors from hardware map
-        telemetry.addData("ecoder values", enc);
+        telemetry.addData("encoder values", enc);
     }
 
     @Override
     public void loop()
     {
         //get values from buttons on gamepad
-        telemetry.addData()
+        telemetry.addData();
     }
 }
