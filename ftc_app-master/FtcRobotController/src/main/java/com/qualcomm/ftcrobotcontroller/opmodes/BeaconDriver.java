@@ -2,34 +2,23 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorController;
 
 /**
  * Created by Jonah on 11/14/2015.
  */
-public class BeaconDriver extends OpMode
+public class BeaconDriver
 {
     DcMotor beaconMotor;
+    int counts = 10;
 
-    @Override
-    public void init()
+    public void beaconPusher(int power)
     {
-        //get references to motors from hardware map
-        beaconMotor = hardwareMap.dcMotor.get("debris_lift_motor");
-    }
 
-    @Override
-    public void loop()
-    {
-        //get values from buttons on gamepad
-        if(gamepad1.dpad_up )
-        {
-            beaconMotor.setPower(1);
-        }
-        if(gamepad1.dpad_down)
-        {
-            beaconMotor.setPower(-1);
-        }
+        beaconMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        beaconMotor.setTargetPosition((int) counts);
+        beaconMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+        beaconMotor.setPower(power);
     }
-
 }
 
