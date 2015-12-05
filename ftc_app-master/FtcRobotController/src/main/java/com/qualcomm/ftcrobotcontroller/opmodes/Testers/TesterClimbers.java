@@ -8,7 +8,7 @@ import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.ClimberDriver;
 public class TesterClimbers {
     ClimberDriver climberDriver;
 
-    public void testClimers()
+    public void testClimbers()
     {
         climberDriver.dropClimers();
     }
