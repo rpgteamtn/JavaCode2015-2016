@@ -108,7 +108,7 @@ public class RPGautoOpmode extends LinearOpMode {
                     if (whichRamp = true) {
                         DriveDriver.turn(0, 0);
                         DriveDriver.moveDist(0, 0);
-                        DriveDriver.turn(0, 0;
+                        DriveDriver.turn(0, 0);
                         DriveDriver.moveDist(0, 0);
                     } else {
                         DriveDriver.turn(0, 0);
