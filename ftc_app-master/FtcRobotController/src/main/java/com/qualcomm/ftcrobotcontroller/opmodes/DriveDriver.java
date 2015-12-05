@@ -92,8 +92,7 @@ public class DriveDriver {
         setMotors(power, power * -1);
     }
 
-    public void moveDist(int power, double targetDist, double distTraveled,double distLeft, double speedGoing, double maxspeed, double BreakPoint)
-    {
+    public void moveDist(int power, double targetDist, double distTraveled, double distLeft, double speedGoing, double maxSpeed, double BreakPoint) {
 
 
         //sets target position of each encoder
@@ -102,18 +101,17 @@ public class DriveDriver {
         driveMotorRB.setTargetPosition((int) distToGo);
         driveMotorRF.setTargetPosition((int) distToGo);
 
-        while(distTraveled < targetDist) {
-            if (distTraveled < targetDist * 0.5 && speedGoing < maxspeed) {
+        while (distTraveled < targetDist) {
+            if (distTraveled < targetDist * 0.5 && speedGoing < maxSpeed) {
                 speedGoing = speedGoing + 0.1;
-                    if speedGoing = maxspeed
-                     {
-                         BreakPoint = targetDist - distTraveled;
-                     }
+                if (speedGoing = maxSpeed) {
+                    BreakPoint = targetDist - distTraveled;
+                }
             }
-            if (distTraveled < targetDist + 0.5 && speedGoing = maxspeed) {
+            if ((distTraveled < targetDist + 0.5) && (speedGoing = maxSpeed)) {
                 speedGoing = speedGoing;
             }
-            if (distTraveled > targetDist * 0.5 && speedGoing < maxspeed) {
+            if (distTraveled > targetDist * 0.5 && speedGoing < maxSpeed) {
                 speedGoing = speedGoing - 0.1;
 
             }
@@ -122,4 +120,6 @@ public class DriveDriver {
             }
 
         }
+    }
+}
 
