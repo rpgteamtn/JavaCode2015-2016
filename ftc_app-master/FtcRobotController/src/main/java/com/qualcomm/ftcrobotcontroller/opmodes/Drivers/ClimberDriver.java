@@ -8,21 +8,21 @@ import com.qualcomm.robotcore.hardware.DcMotorController;
  */
 public class ClimberDriver {
     
-    DcMotor ClimberMotor;
+    DcMotor ClimerMotor;
     int counts = 10;
     double power = 1;
 
     public ClimberDriver(DcMotor cm) {
-        ClimberMotor = cm;
+        ClimerMotor = cm;
     }
 
     public void dropClimers()
     {
-        ClimberMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        ClimberMotor.setTargetPosition(counts);
+        beaconMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        beaconMotor.setTargetPosition(counts);
 
-        ClimberMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
-        ClimberMotor.setPower(power);
+        beaconMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+        beaconMotor.setPower(power);
     }
 
 }
