@@ -16,7 +16,7 @@ public class ClimberDriver {
         ClimberMotor = cm;
     }
 
-    public void dropClimers()
+    public void dropClimbers()
     {
         ClimberMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         ClimberMotor.setTargetPosition(counts);
