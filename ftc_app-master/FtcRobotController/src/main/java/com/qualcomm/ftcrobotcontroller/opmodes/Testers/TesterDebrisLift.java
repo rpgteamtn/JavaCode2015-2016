@@ -1,7 +1,6 @@
 package com.qualcomm.ftcrobotcontroller.opmodes.Testers;
 
-import com.qualcomm.ftcrobotcontroller.opmodes.DebrisLift;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.DebrisLift;
 
 /**
  * Created by Chaitu on 21-11-2015.

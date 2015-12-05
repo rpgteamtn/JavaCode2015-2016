@@ -1,5 +1,6 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 // Allows use of other classes in program
+import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.DriveDriver;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
@@ -16,7 +17,7 @@ public class DriveTrain extends OpMode {
     DcMotor driveMotorLB;
     DcMotor driveMotorRF;
     DcMotor driveMotorRB;
-    DriveDriver DriveDriver;
+    com.qualcomm.ftcrobotcontroller.opmodes.Drivers.DriveDriver DriveDriver;
     double mediumPower = 0.75;
     double smallPower = 0.5;
 // Overrides previous function
