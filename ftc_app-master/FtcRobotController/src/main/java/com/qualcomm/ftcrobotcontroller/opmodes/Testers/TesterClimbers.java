@@ -10,7 +10,7 @@ public class TesterClimbers {
 
     public void testClimbers()
     {
-        climberDriver.dropClimers();
+        climberDriver.dropClimbers();
     }
 
 }
