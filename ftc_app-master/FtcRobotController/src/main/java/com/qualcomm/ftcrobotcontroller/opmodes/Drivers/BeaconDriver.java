@@ -3,7 +3,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes.Drivers;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
-import com.qualcomm.robotcore.
+import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.Timer;
 
 
 /**
@@ -12,6 +12,7 @@ import com.qualcomm.robotcore.
 public class BeaconDriver
 {
     DcMotor beaconMotor;
+    Timer Timer;
     int counts = 10;
 
     public void beaconPusher(int power)
