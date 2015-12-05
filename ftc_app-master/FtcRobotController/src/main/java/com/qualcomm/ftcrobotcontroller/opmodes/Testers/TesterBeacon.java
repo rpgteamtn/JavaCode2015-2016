@@ -8,3 +8,4 @@ public class TesterBeacon
 
     public void testBeacon() { BeaconDriver.dropBeacon(); }
 }
+    public TesterBeacon (DcMotor TB) { testerBeaconMotor = TB; }

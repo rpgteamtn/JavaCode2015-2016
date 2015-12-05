@@ -21,4 +21,5 @@ public class TesterEncoders extends OpMode
         //get values from buttons on gamepad
         telemetry.addData();
     }
+    public TesterEncoders (DcMotor TE) { testerEncodersMotor = TE; }
 }

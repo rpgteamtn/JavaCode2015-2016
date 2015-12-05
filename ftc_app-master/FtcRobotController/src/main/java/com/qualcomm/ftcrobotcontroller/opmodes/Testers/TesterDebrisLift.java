@@ -15,5 +15,6 @@ public class TesterDebrisLift{
         sleep(10000);
 
     }
-}
+    public TesterDebrisLift(DcMotor TDL) { debrisLiftMotor = TDL; }
+   }
 }
