@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 /**
  * Created by Chaitu on 21-11-2015.
  */
-public class TesterDebrisLift extends LinearOpMode {
-    DebrisLift DebrisLift;
+public class TesterDebrisLift{
+        DebrisLift DebrisLift;
 
     public void DebrisLiftTester() {
         DebrisLift.debrisLiftMotor.setPower(1);
@@ -16,4 +16,5 @@ public class TesterDebrisLift extends LinearOpMode {
         sleep(10000);
 
     }
+}
 }

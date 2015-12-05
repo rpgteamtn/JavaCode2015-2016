@@ -85,7 +85,7 @@ public class AutoOpmodeStratagems {
         beacon=false;
         start=true;
     }
-    public AutoOpmodeStratagems(char Alliance, char RampHight, char WhichRamp;, boolean Climers, boolean Beacon, boolean Start)
+    public AutoOpmodeStratagems(char Alliance, char RampHight, char WhichRamp, boolean Climers, boolean Beacon, boolean Start)
     {
         alliance = Alliance;
         rampHight = RampHight;

@@ -39,22 +39,22 @@ public class DriveTrain extends OpMode {
     public void loop() {
         // Sets values for joystick
         // Note: Applies to sides of robot not each motor
-        while((!-gamepad1.right_bumper && !-gamepad1.left_bumper) ||(-gamepad1.right_bumper && -gamepad1.left_bumper) ) {
+        while((!gamepad1.right_bumper && !gamepad1.left_bumper) ||(gamepad1.right_bumper && gamepad1.left_bumper) ) {
             float left = -gamepad1.left_stick_y;
             float right = -gamepad1.right_stick_y;
             // Sets power to each motor
             // Automatically connects motors to joystick
             DriveDriver.setMotors(left, right);
         }
-        while(-gamepad1.right_bumper == true) {
+        while(gamepad1.right_bumper == true) {
             float left = -gamepad1.left_stick_y;
             float right = -gamepad1.right_stick_y;
-            DriveDriver.setMotors(left * smallPower);
+            DriveDriver.setMotors(left * smallPower, right * smallPower);
         }
-        while(-gamepad1.left_bumper == true) {
+        while(gamepad1.left_bumper == true) {
             float left = -gamepad1.left_stick_y;
             float right = -gamepad1.right_stick_y;
-            DriveDriver.setMotors(left * mediumPower);
+            DriveDriver.setMotors(left * mediumPower, right * mediumPower);
         }
 
 
