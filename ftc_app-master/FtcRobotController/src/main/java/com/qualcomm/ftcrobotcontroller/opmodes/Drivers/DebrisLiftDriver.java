@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotorController;
 /**
  * Created by Natalie on 10/17/2015.
  */
-public class DebrisLift extends OpMode
+public class DebrisLift extends OpMode{
 
     DcMotor debrisLiftMotor;
     int counts = 10;
