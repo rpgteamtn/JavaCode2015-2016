@@ -21,6 +21,7 @@ public class RunTester extends LinearOpMode
     {
         TesterClimbers.testClimbers();
         TesterEncoders.testEncoders();
+        TesterMotors.testMotors();
         TesterDebrisLift.testDebrisLift();
         TesterBeacon.testBeacon();
         TesterRobotLift.RobotLiftTester();
