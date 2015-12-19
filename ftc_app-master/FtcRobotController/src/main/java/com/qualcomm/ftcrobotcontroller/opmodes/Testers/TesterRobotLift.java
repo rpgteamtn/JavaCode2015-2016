@@ -13,5 +13,5 @@ public class TesterRobotLift
         RobotLift.RobotLiftMotor.setPower(-1);
         sleep(5000);
     }
-    public TesterRobotLift(DcMotor TRL) { RobotLiftMotor = TRL; }
+    public TesterRobotLift(DcMotor TRL) { testerRobotLiftMotor = TRL; }
 }

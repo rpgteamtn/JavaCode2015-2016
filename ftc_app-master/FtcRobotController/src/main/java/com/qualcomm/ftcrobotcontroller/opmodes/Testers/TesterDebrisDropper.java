@@ -13,5 +13,5 @@ public class TesterDebrisDropper
         DebrisDropper.DebrisDropperMotor.setPower(-1);
         sleep(5000);
     }
-    public TesterDebrisDropper(DcMotor TDD) { DebrisDropperMotor = TDD; }
+    public TesterDebrisDropper(DcMotor TDD) { testerDebrisDropperMotor = TDD; }
 }
