@@ -16,5 +16,9 @@ public class TesterDebrisLift{
 
     }
     public TesterDebrisLift(DcMotor TDL) { debrisLiftMotor = TDL; }
+<<<<<<< HEAD
    }
 
+=======
+}
+>>>>>>> origin/master
