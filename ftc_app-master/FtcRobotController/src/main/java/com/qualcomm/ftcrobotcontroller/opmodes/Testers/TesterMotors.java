@@ -22,7 +22,4 @@ public class TesterMotors {
     public TesterMotors()
     {
     }
-
-
-
 }
