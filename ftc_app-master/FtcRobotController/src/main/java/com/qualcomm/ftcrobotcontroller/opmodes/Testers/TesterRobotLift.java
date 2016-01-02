@@ -1,17 +1,18 @@
 package com.qualcomm.ftcrobotcontroller.opmodes.Testers;
 
-import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.RobotLift;
+import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.Timer;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
 public class TesterRobotLift
 {
-    RobotLift RobotLift;
+    DcMotor RobotLiftMotor;
 
     public void RobotLiftTester()
     {
-        RobotLift.RobotLiftMotor.setPower(1);
-        sleep(5000);
-        RobotLift.RobotLiftMotor.setPower(-1);
-        sleep(5000);
+        RobotLiftMotor.setPower(1);
+        Timer.sleep(5000);
+        RobotLiftMotor.setPower(-1);
+        Timer.sleep(5000);
     }
-    public TesterRobotLift(DcMotor TRL) { testerRobotLiftMotor = TRL; }
+    public TesterRobotLift(){}
 }

@@ -1,45 +1,42 @@
 package com.qualcomm.ftcrobotcontroller.opmodes.Testers;
 
 
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
+import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.Timer;
 
 /**
  * Created by Jonah on 11/14/2015.
  */
-public class TesterEncoders extends OpMode
-{
-    @Override
-    public void init()
-    {
-        leftMotor = hardwareMap.dcMotor.get("left_drive");
-        rightMotor = hardwareMap.dcMotor.get("right_drive");
+public class TesterEncoders {
+    DcMotor leftMotor;
+    DcMotor rightMotor;
+    int target = 15000;
 
-        rightMotor = setDirection(DcMotor.Direction.REVERSE);
 
-        leftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        rightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        //get references to motors from hardware map
-        telemetry.addData("encoder values", enc);
-    }
+    public void testEncoders() {
+        while ((leftMotor.getCurrentPosition() < target) || (leftMotor.getCurrentPosition() < target)) {
+            /**
+             *  telemetry.addData("Motor Target", target);
+             telemetry.addData("Left Position", leftMotor.getCurrentPosition());
+             telemetry.addData("Right Position", rightMotor.getCurrentPosition());
+             */
 
-    @Override
-    public void loop()
-    {
-        //get values from buttons on gamepad
-        telemetry.addData("Motor Target", COUNTS);
-        telemetry.addData("Left Position",leftMotor.getCurrentPosition());
+            leftMotor.setTargetPosition((int) target);
+            rightMotor.setTargetPosition((int) target);
+
+            leftMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+            rightMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+
+            leftMotor.setPower(0.5);
+            rightMotor.setPower(0.5);
+        }
+        /**
+        telemetry.addData("Motor Target", target);
+        telemetry.addData("Left Position", leftMotor.getCurrentPosition());
         telemetry.addData("Right Position", rightMotor.getCurrentPosition());
-    }
-    public TesterEncoders (DcMotor TE){
-        leftMotor.setTargetPosition((int) COUNTS);
-        rightMotor.setTargetPosition((int) COUNTS);
-
-        leftMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
-        rightMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
-
-        leftMotor.setPower(0.5);
-        rightMotor.setPower(0.5);
+        Timer.sleep(60000); */
     }
 }
