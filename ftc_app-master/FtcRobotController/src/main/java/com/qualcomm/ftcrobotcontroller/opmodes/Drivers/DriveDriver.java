@@ -96,10 +96,10 @@ public class DriveDriver {
 
 
         //sets target position of each encoder
-        driveMotorLB.setTargetPosition((int) distToGo);
-        driveMotorLF.setTargetPosition((int) distToGo);
-        driveMotorRB.setTargetPosition((int) distToGo);
-        driveMotorRF.setTargetPosition((int) distToGo);
+        driveMotorLB.setTargetPosition((int) targetDist);
+        driveMotorLF.setTargetPosition((int) targetDist);
+        driveMotorRB.setTargetPosition((int) targetDist);
+        driveMotorRF.setTargetPosition((int) targetDist);
 
         while (distTraveled < targetDist) {
             if (distTraveled < targetDist * 0.5 && speedGoing < maxSpeed) {
