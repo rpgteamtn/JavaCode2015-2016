@@ -16,6 +16,11 @@ public class DriveDriver {
     DcMotor driveMotorLF;//LF  is left front
     DcMotor driveMotorRB;//RB is Right Back
     DcMotor driveMotorRF;//RF  is right front
+    double distTraveled;
+    double distLeft;
+    double speedGoing;
+    double maxSpeed = 0.7;
+    double BreakPoint;
 
     // this FUnction allows other programs to use the drive driver functions
     public DriveDriver(DcMotor lb, DcMotor lf, DcMotor rb, DcMotor rf) {
@@ -92,7 +97,7 @@ public class DriveDriver {
         setMotors(power, power * -1);
     }
 
-    public void moveDist(int power, double targetDist, double distTraveled, double distLeft, double speedGoing, double maxSpeed, double BreakPoint) {
+    public void moveDist(double targetDist, double power) {
 
 
         //sets target position of each encoder
