@@ -20,10 +20,10 @@ public class TimerTest extends OpMode{
     DcMotor driveMotorRF;//RF  is right front
     public void init()
     {
-        driveMotorLB = hardwareMap.dcMotor.get("MotorLB");
-        driveMotorLF = hardwareMap.dcMotor.get("MotorLF");
-        driveMotorRB = hardwareMap.dcMotor.get("MotorRB");
-        driveMotorRF = hardwareMap.dcMotor.get("MotorRF");
+        driveMotorLB = hardwareMap.dcMotor.get("driveMotorLB");
+        driveMotorLF = hardwareMap.dcMotor.get("driveMotorLF");
+        driveMotorRB = hardwareMap.dcMotor.get("driveMotorRB");
+        driveMotorRF = hardwareMap.dcMotor.get("driveMotorRF");
 
         driveMotorRB.setDirection(DcMotor.Direction.REVERSE);
         driveMotorRF.setDirection(DcMotor.Direction.REVERSE);
