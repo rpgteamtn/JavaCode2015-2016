@@ -104,18 +104,18 @@ public class DriveDriver {
         while (distTraveled < targetDist) {
             if (distTraveled < targetDist * 0.5 && speedGoing < maxSpeed) {
                 speedGoing = speedGoing + 0.1;
-                if (speedGoing = maxSpeed) {
+                if (speedGoing == maxSpeed) {
                     BreakPoint = targetDist - distTraveled;
                 }
             }
-            if ((distTraveled < targetDist + 0.5) && (speedGoing = maxSpeed)) {
+            if ((distTraveled < targetDist + 0.5) && (speedGoing == maxSpeed)) {
                 speedGoing = speedGoing;
             }
             if (distTraveled > targetDist * 0.5 && speedGoing < maxSpeed) {
                 speedGoing = speedGoing - 0.1;
 
             }
-            if (distTraveled = BreakPoint) {
+            if (distTraveled == BreakPoint) {
                 speedGoing = speedGoing - 0.1;
             }
 
