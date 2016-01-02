@@ -1,11 +1,16 @@
-package com.qualcomm.ftcrobotcontroller.opmodes;
+package com.qualcomm.ftcrobotcontroller.opmodes.Testers;
 
 import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.BeaconDriver;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
-public class TesterBeacon
-{
+public class TesterBeacon {
     BeaconDriver beaconDriver;
 
-    public void testBeacon() { BeaconDriver.dropBeacon(); }
+    public void testBeacon() {
+        beaconDriver.beaconPusher();
+    }
+
+    public TesterBeacon(DcMotor TB) {
+        TesterBeaconMotor = TB;
+    }
 }
-    public TesterBeacon (DcMotor TB) { testerBeaconMotor = TB; }

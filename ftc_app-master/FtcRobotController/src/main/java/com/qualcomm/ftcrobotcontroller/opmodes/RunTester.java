@@ -6,24 +6,25 @@ import com.qualcomm.ftcrobotcontroller.opmodes.Testers.TesterDebrisLift;
 import com.qualcomm.ftcrobotcontroller.opmodes.Testers.TesterBeacon;
 import com.qualcomm.ftcrobotcontroller.opmodes.Testers.TesterRobotLift;
 import com.qualcomm.ftcrobotcontroller.opmodes.Testers.TesterDebrisDropper;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-public class RunTester extends LinearOpMode
-{
+public class RunTester extends LinearOpMode {
     TesterBeacon TesterBeacon;
     TesterClimbers TesterClimbers;
     TesterDebrisDropper TesterDebrisDropper;
     TesterDebrisLift TesterDebrisLift;
     TesterEncoders TesterEncoders;
     TesterRobotLift TesterRobotLift;
-}
+    TesterMotors TesterMotors;
+
     @Override
-    public void runOpMode() throws InterruptedException
-    {
+    public void runOpMode() throws InterruptedException {
         TesterClimbers.testClimbers();
         TesterEncoders.testEncoders();
         TesterMotors.testMotors();
-        TesterDebrisLift.testDebrisLift();
+        TesterDebrisLift.testerDebrisLift();
         TesterBeacon.testBeacon();
         TesterRobotLift.RobotLiftTester();
         TesterDebrisDropper.DebrisDropperTester();
     }
+}

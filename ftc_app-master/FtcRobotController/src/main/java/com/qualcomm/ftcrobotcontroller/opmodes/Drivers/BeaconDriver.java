@@ -13,7 +13,9 @@ public class BeaconDriver
 {
     DcMotor beaconMotor;
     Timer Timer;
-    int counts = 10;
+    int power = 1;
+    int counts = 3;
+
 
     public void beaconPusher(int power)
     {

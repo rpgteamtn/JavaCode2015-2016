@@ -9,13 +9,13 @@ import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.Timer;
 
 public class TesterMotors {
     DriveDriver DriveDriver;
-    Timer Timer
+    Timer Timer;
 
-    public void TestMotors()
+    public void testMotors()
        {
 
            DriveDriver.setMotors(0.7, 0.7);
-           Timer.Sleep(2000);
+           Timer.sleep(2000);
 
        }
 
