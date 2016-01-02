@@ -10,7 +10,5 @@ public class TesterBeacon {
         beaconDriver.beaconPusher();
     }
 
-    public TesterBeacon(DcMotor TB) {
-        TesterBeaconMotor = TB;
-    }
+    public TesterBeacon(){}
 }

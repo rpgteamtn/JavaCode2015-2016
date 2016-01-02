@@ -17,7 +17,7 @@ public class BeaconDriver
     int counts = 3;
 
 
-    public void beaconPusher(int power)
+    public void beaconPusher()
     {
 
         beaconMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);

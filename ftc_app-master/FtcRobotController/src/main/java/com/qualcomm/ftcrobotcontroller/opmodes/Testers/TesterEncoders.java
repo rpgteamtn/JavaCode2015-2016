@@ -3,6 +3,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes.Testers;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorController;
 
 /**
  * Created by Jonah on 11/14/2015.

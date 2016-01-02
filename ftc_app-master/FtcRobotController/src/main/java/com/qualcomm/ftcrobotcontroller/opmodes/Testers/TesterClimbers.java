@@ -14,7 +14,5 @@ public class TesterClimbers {
     }
 
 
-    public TesterClimbers(DcMotor TC) {
-        testerClimbersMotor = TC;
-    }
+    public TesterClimbers(){}
 }
