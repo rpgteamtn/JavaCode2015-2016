@@ -31,12 +31,24 @@ public class TimerTest extends OpMode{
 
     @Override
     public void loop() {
-        if(this.getRuntime() < 1.0) {
-            DriveDriver.setMotors(1, 1);
-        }
-        this.resetStartTime();
-        if(this.getRuntime()< 1.0) {
-            DriveDriver.setMotors(-1, -1);
+       if(this.getRuntime() < 1.0)
+
+           public static void sleep(long sleepTime)
+        {
+            long wakeupTime = System.currentTimeMillis() + sleepTime;
+
+            while (sleepTime > 0)
+            {
+                try
+                {
+                    Thread.sleep(sleepTime);
+                }
+                catch (InterruptedException e)
+                {
+                    sleepTime = wakeupTime - System.currentTimeMillis();
+                }
+            }
+        }   //sleep
         }
     }
 }

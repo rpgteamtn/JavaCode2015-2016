@@ -31,6 +31,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import com.qualcomm.ftcrobotcontroller.opmodes.Testers.RunTester;
 import com.qualcomm.ftcrobotcontroller.opmodes.Testers.TesterMotors;
 import com.qualcomm.ftcrobotcontroller.opmodes.other.K9TeleOp;
 import com.qualcomm.ftcrobotcontroller.opmodes.other.MatrixK9TeleOp;
@@ -67,7 +68,7 @@ public class FtcOpModeRegister implements OpModeRegister {
     manager.register("TimerTest", TimerTest.class);
     manager.register("TesterMotors", TesterMotors.class);
     manager.register("RPGautoOpmode", RPGautoOpmode.class);
-
+    manager.register("RunTester", RunTester.class);
 
 
 
