@@ -7,11 +7,13 @@ import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.ClimberDriver;
  */
 public class TesterClimbers {
     ClimberDriver climberDriver;
+    // Tests ClimberDriver
 
     public void testClimbers() {
         climberDriver.dropClimbers();
     }
 
-
+    // Constructor
+    // Can be called upon by other programs
     public TesterClimbers(){}
 }
