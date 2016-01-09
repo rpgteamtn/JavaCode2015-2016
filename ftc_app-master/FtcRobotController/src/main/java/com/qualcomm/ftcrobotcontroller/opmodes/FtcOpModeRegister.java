@@ -63,11 +63,11 @@ public class FtcOpModeRegister implements OpModeRegister {
      */
 
     //**************Team RPG's opModes******************\\
-   //manager.register("DriveTrain", DriveTrain.class);
+   manager.register("DriveTrain", DriveTrain.class);
     //manager.register("TestBot", TestBot.class);
-   // manager.register("TimerTest", TimerTest.class);
-   // manager.register("TesterMotors", TesterMotors.class);
-   // manager.register("RPGautoOpmode", RPGautoOpmode.class);
+    //manager.register("TimerTest", TimerTest.class);
+    //manager.register("TesterMotors", TesterMotors.class);
+    //manager.register("RPGautoOpmode", RPGautoOpmode.class);
     //manager.register("RunTester", RunTester.class);
 
 
