@@ -47,7 +47,7 @@ public class DriveTrain extends OpMode {
             // Automatically connects motors to joystick
             DriveDriver.setMotors(left, right);
         }
-       .,while(gamepad1.right_bumper == true) {
+        while(gamepad1.right_bumper == true) {
             float left = -gamepad1.left_stick_y;
             float right = -gamepad1.right_stick_y;
             DriveDriver.setMotors(left * smallPower, right * smallPower);
