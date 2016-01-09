@@ -20,7 +20,8 @@ public class DebrisLiftDriver extends OpMode {
 
     @Override
     public void loop() {
-        //get values from buttons on gamepad
+        // get values from buttons on gamepad
+        // assigns function to buttons on gamepad
         if (gamepad1.dpad_up) {
             debrisLiftMotor.setPower(1);
         }

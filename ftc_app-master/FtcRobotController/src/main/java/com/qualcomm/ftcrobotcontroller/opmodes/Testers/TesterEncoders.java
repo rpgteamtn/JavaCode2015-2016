@@ -13,6 +13,7 @@ import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.Timer;
 public class TesterEncoders {
     DcMotor leftMotor;
     DcMotor rightMotor;
+    // Sets target position
     int target = 15000;
 
 
@@ -24,12 +25,14 @@ public class TesterEncoders {
              telemetry.addData("Right Position", rightMotor.getCurrentPosition());
              */
 
+            // Encoders will input desired position
+            // Target must be inputed first
             leftMotor.setTargetPosition((int) target);
             rightMotor.setTargetPosition((int) target);
 
             leftMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
             rightMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
-
+            // Robot will move to position at half speed
             leftMotor.setPower(0.5);
             rightMotor.setPower(0.5);
         }
