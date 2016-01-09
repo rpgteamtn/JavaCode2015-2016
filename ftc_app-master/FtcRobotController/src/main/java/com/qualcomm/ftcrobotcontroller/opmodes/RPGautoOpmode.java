@@ -89,7 +89,7 @@ public class RPGautoOpmode extends LinearOpMode {
             {
                 if ((climers = true) || (beacon = true)) {
                     DriveDriver.moveDist(distI, power);
-                    DriveDriver.turn(angE, power);//ang I
+                    DriveDriver.turn(reverseAngle(angE), power);//ang I
                     DriveDriver.moveDist((distA+distB-distJ), power);
                     DriveDriver.turn(reverseAngle(angB), power);// blue angle B
                     DriveDriver.moveDist((distC + distE), power);
