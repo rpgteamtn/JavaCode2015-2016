@@ -28,7 +28,7 @@ public class DriveTrain extends OpMode {
         // Applys to individual motors
         // Programs for ran on driverMotor now apply to robot motors
         driveMotorLB = hardwareMap.dcMotor.get("driveMotorLB");
-        driveMotorLF = hardwareMap.dcMotor.get("driveMotorLF");u
+        driveMotorLF = hardwareMap.dcMotor.get("driveMotorLF");
         driveMotorRF = hardwareMap.dcMotor.get("driveMotorRF");
         driveMotorRB = hardwareMap.dcMotor.get("driveMotorRB");
         DriveDriver = new DriveDriver(driveMotorLB, driveMotorLF, driveMotorRB, driveMotorRF);
