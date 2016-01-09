@@ -37,6 +37,8 @@ public class DebrisLiftDriver extends OpMode {
     }
 
     public void runDebris(int power) {
+        // Sends readouts as program runs
+        // Measures speed and distance in power and rotation counts
         debrisLiftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         debrisLiftMotor.setTargetPosition(counts);
 

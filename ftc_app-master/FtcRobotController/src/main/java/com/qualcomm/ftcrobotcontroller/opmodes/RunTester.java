@@ -8,7 +8,14 @@ import com.qualcomm.ftcrobotcontroller.opmodes.Testers.TesterRobotLift;
 import com.qualcomm.ftcrobotcontroller.opmodes.Testers.TesterDebrisDropper;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
+/**
+ * Created by Josh Crabtree
+ */
+
+// Note: function will test all testers
 public class RunTester extends LinearOpMode {
+    // Calls upon other Testers
+    // Uses constructors written in each Tester
     TesterBeacon TesterBeacon;
     TesterClimbers TesterClimbers;
     TesterDebrisDropper TesterDebrisDropper;
@@ -19,6 +26,8 @@ public class RunTester extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
+        // Runs testers
+        // Every tester below will run in order they are placed
         TesterClimbers.testClimbers();
         TesterEncoders.testEncoders();
         TesterMotors.testMotors();

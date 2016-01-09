@@ -17,7 +17,7 @@ public class DriveTrain extends OpMode {
     DcMotor driveMotorLB;
     DcMotor driveMotorRF;
     DcMotor driveMotorRB;
-    com.qualcomm.ftcrobotcontroller.opmodes.Drivers.DriveDriver DriveDriver;
+    DriveDriver DriveDriver;
     double mediumPower = 0.75;
     double smallPower = 0.5;
 // Overrides previous function

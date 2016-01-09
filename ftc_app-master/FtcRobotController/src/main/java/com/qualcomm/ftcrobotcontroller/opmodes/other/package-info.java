@@ -37,4 +37,4 @@
 
  */
 
-package com.qualcomm.ftcrobotcontroller.opmodes.other;
+package com.qualcomm.ftcrobotcontroller.opmodes;
