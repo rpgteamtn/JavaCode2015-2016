@@ -24,7 +24,7 @@ public class BeaconDriver
         beaconMotor.setTargetPosition((int) counts);
         beaconMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
         beaconMotor.setPower(power);
-        sleep(5000);
+       // sleep(5000);
 
         beaconMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         beaconMotor.setTargetPosition((int) counts);
