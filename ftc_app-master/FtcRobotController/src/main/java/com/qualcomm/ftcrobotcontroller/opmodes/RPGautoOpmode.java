@@ -9,11 +9,12 @@ import android.view.Gravity;
 import android.widget.TextView;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.DriveDriver;
 
 /**
  * Created by Jonah on 10/31/2015.
- */
+        */
 public class RPGautoOpmode extends LinearOpMode {
     boolean alliance;//blue  is true
     char rampHight;
