@@ -223,40 +223,39 @@ public class RPGautoOpmode extends LinearOpMode {
 
                     DriveDriver.moveDist(distE, -power);//back up
                     if (whichRamp = true) {
-                        DriveDriver.turn(ang, power);
-                        DriveDriver.moveDist(dist, power);
-                        DriveDriver.turn(ang, power);
-                        DriveDriver.moveDist(dist, power);
+                        DriveDriver.moveDist(13, -power);
+                        DriveDriver.turn(angA, power);
+                        DriveDriver.moveDist(24, power);
+                        DriveDriver.turn(45, power);
+                        DriveDriver.moveDist(23 - botToMt, power);
                     } else {
-                        DriveDriver.turn(ang, power);
-                        DriveDriver.moveDist(dist, power);
-                        DriveDriver.turn(ang, power);
-                        DriveDriver.moveDist(dist, power);
+                        DriveDriver.turn(180, power);
+                        DriveDriver.moveDist(distO, power);
+                        DriveDriver.turn(angB, power);
+                        DriveDriver.moveDist(distP, power);
                     }
 
                 } else {
-                    DriveDriver.moveDist(0, 0);
-                    DriveDriver.turn(0, 0);
-                    DriveDriver.moveDist(0, 0);
-                    DriveDriver.turn(0, 0);
-                    DriveDriver.moveDist(0, 0);
+                    DriveDriver.moveDist(distM, power);
+                    DriveDriver.turn(angB, power);
+                    DriveDriver.moveDist(distN, power);
                 }
                 switch (rampHight) {
                     case 'P':
-                        DriveDriver.moveDist(distP, power);
+                        DriveDriver.moveDist(distPm, power);
                     case 'L':
-                        DriveDriver.moveDist(distL, power);
+                        DriveDriver.moveDist(distLm, power);
                     case 'M':
-                        DriveDriver.moveDist(distM, power);
+                        DriveDriver.moveDist(distMm, power);
                     case 'H':
-                        DriveDriver.moveDist(distH, power);
+                        DriveDriver.moveDist(distHm, power);
                 }
 
             } else// near to line
             {
                 if ((climers = true) || (beacon = true)) {
                     DriveDriver.moveDist((distA + distB), power);
-                    DriveDriver.turn(0, 0);// angle B
+                    DriveDriver.turn(angB, power);// angle B
                     DriveDriver.moveDist((distC + distE), power);
 
                     if ((climers = true) || (beacon = true)) {
@@ -271,15 +270,15 @@ public class RPGautoOpmode extends LinearOpMode {
 
                     DriveDriver.moveDist(distE, power);//back up
                     if (whichRamp = true) {//blue ramp
-                        DriveDriver.turn(0, 0);
+                        DriveDriver.turn(angC, power);
                         DriveDriver.moveDist(distF, power);
-                        DriveDriver.turn(0, 0);
+                        DriveDriver.turn(angD, power);
                         DriveDriver.moveDist(distG, power);
                     } else {
-                        DriveDriver.turn(0, 0);
-                        DriveDriver.moveDist(distF, power);
-                        DriveDriver.turn(0, 0);
-                        DriveDriver.moveDist(distG, power);
+                        DriveDriver.turn(180, power);
+                        DriveDriver.moveDist(distM, power);
+                        DriveDriver.turn(angB, power);
+                        DriveDriver.moveDist(distN, power);
                     }
 
                 } else {
@@ -288,21 +287,21 @@ public class RPGautoOpmode extends LinearOpMode {
                         DriveDriver.turn(angA,power);//angle A
                         DriveDriver.moveDist((distD + distG), power);
                     } else {//red ramp
-                        DriveDriver.moveDist(0, 0);
-                        DriveDriver.turn(0, 0);
-                        DriveDriver.moveDist(0, 0);
+                        DriveDriver.moveDist(distK, power);
+                        DriveDriver.turn(angA, power);
+                        DriveDriver.moveDist(distL, power);
                     }
 
                 }
                 switch (rampHight) {
                     case 'P':
-                        DriveDriver.moveDist(distP, power);
+                        DriveDriver.moveDist(distPm, power);
                     case 'L':
-                        DriveDriver.moveDist(distL, power);
+                        DriveDriver.moveDist(distLm, power);
                     case 'M':
-                        DriveDriver.moveDist(distM, power);
+                        DriveDriver.moveDist(distMm, power);
                     case 'H':
-                        DriveDriver.moveDist(distH, power);
+                        DriveDriver.moveDist(distHm, power);
                 }
 
             }
