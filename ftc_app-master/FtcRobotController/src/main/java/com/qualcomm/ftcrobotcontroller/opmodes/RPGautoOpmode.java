@@ -205,11 +205,11 @@ public class RPGautoOpmode extends LinearOpMode {
             if (start = true)// near to mountain
             {
                 if ((climers = true) || (beacon = true)) {
-                    DriveDriver.moveDist(dist, power);
-                    DriveDriver.turn(0, power);
-                    DriveDriver.moveDist(0, power);
-                    DriveDriver.turn(0, power);
-                    DriveDriver.moveDist(0, power);
+                    DriveDriver.moveDist(distI, power);
+                    DriveDriver.turn(angE, power);
+                    DriveDriver.moveDist(distA + distB - distJ, power);
+                    DriveDriver.turn(angB, power);
+                    DriveDriver.moveDist(distC + distE, power);
 
                     if ((climers = true) || (beacon = true)) {
                         //do climers and beacons
@@ -221,17 +221,17 @@ public class RPGautoOpmode extends LinearOpMode {
                         //do nothing. this shouldnt accure
                     }
 
-                    DriveDriver.moveDist(0, 0);//back up
+                    DriveDriver.moveDist(distE, -power);//back up
                     if (whichRamp = true) {
-                        DriveDriver.turn(0, 0);
-                        DriveDriver.moveDist(0, 0);
-                        DriveDriver.turn(0, 0);
-                        DriveDriver.moveDist(0, 0);
+                        DriveDriver.turn(ang, power);
+                        DriveDriver.moveDist(dist, power);
+                        DriveDriver.turn(ang, power);
+                        DriveDriver.moveDist(dist, power);
                     } else {
-                        DriveDriver.turn(0, 0);
-                        DriveDriver.moveDist(0, 0);
-                        DriveDriver.turn(0, 0);
-                        DriveDriver.moveDist(0, 0);
+                        DriveDriver.turn(ang, power);
+                        DriveDriver.moveDist(dist, power);
+                        DriveDriver.turn(ang, power);
+                        DriveDriver.moveDist(dist, power);
                     }
 
                 } else {
