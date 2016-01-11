@@ -29,9 +29,11 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
-package com.qualcomm.ftcrobotcontroller.opmodes.Testers;
+package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.DriveDriver;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import java.text.SimpleDateFormat;
@@ -47,9 +49,23 @@ public class stopwatchTest extends OpMode {
     private String startDate;
     private ElapsedTime runtime = new ElapsedTime();
 
+    DcMotor driveMotorLF;
+    DcMotor driveMotorLB;
+    DcMotor driveMotorRF;
+    DcMotor driveMotorRB;
+    DriveDriver DriveDriver;
+
+    boolean done = false;
+    boolean tenSecMark = false;
     @Override
     public void init() {
-
+        driveMotorLB = hardwareMap.dcMotor.get("driveMotorLB");
+        driveMotorLF = hardwareMap.dcMotor.get("driveMotorLF");
+        driveMotorRF = hardwareMap.dcMotor.get("driveMotorRF");
+        driveMotorRB = hardwareMap.dcMotor.get("driveMotorRB");
+        driveMotorRF.setDirection(DcMotor.Direction.REVERSE);
+        driveMotorRB.setDirection(DcMotor.Direction.REVERSE);
+        DriveDriver = new DriveDriver(driveMotorLB, driveMotorLF, driveMotorRB, driveMotorRF);
     }
 
     /*
@@ -72,6 +88,15 @@ public class stopwatchTest extends OpMode {
         telemetry.addData("1 Start", "NullOp started at " + startDate);
         telemetry.addData("2 Status", "running for " + runtime.toString());
 
+        DriveDriver.moveDist(24, .7);
+        if(runtime.toString() == "10.0000 seconds")
+        {
+            tenSecMark= true;
+        }
+        if((done = false)&&(tenSecMark == true)) {
+        DriveDriver.moveDist(24, .7);
+            tenSecMark = false;
+        }
 
     }
 }
