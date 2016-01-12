@@ -31,6 +31,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.DebrisLiftDriver;
 import com.qualcomm.ftcrobotcontroller.opmodes.Testers.RunTester;
 import com.qualcomm.ftcrobotcontroller.opmodes.Testers.TesterMotors;
 import com.qualcomm.ftcrobotcontroller.opmodes.DriveTrain;
@@ -69,12 +70,12 @@ public class FtcOpModeRegister implements OpModeRegister {
     //manager.register("TestBot", TestBot.class);
     //manager.register("TimerTest", TimerTest.class);
     //manager.register("TesterMotors", TesterMotors.class);
-    //manager.register("RPGautoOpmode", RPGautoOpmode.class);
+    manager.register("RPGautoOpmode", RPGautoOpmode.class);
     //manager.register("RunTester", RunTester.class);
-    manager.register("stopwatchTest", stopwatchTest.class);
-
-
-   manager.register("NullOp", NullOp.class);
+   manager.register("stopwatchTest", stopwatchTest.class);
+    manager.register("rpgTeleOp", rpgTeleOp.class);
+    //manager.register("DebrisLiftDriver", DebrisLiftDriver.class);
+    manager.register("NullOp", NullOp.class);
 
    // manager.register("MatrixK9TeleOp", MatrixK9TeleOp.class);
     //manager.register("K9TeleOp", K9TeleOp.class);
