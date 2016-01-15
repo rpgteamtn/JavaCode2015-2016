@@ -14,8 +14,10 @@ public class TesterRobotLift
     public void RobotLiftTester()
     {
         // Function to run lift
+        // Lift will strecth out
         RobotLiftMotor.setPower(1);
         Timer.sleep(5000);
+        // Lift will go back in
         RobotLiftMotor.setPower(-1);
         Timer.sleep(5000);
     }
