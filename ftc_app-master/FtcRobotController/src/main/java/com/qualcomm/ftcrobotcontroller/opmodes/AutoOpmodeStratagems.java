@@ -13,7 +13,7 @@ public class AutoOpmodeStratagems {
     boolean beacon;
     boolean start;// true is near mountain
 
-    public void PlanAB()
+    public void planAB()
     {
          alliance='B';
          rampHight='M';
@@ -22,7 +22,7 @@ public class AutoOpmodeStratagems {
          beacon=true;
          start=false;
     }
-    public void PlanAR()
+    public void planAR()
     {
         alliance='R';
         rampHight='M';
@@ -31,7 +31,7 @@ public class AutoOpmodeStratagems {
         beacon=true;
         start=false;
     }
-    public void PlanBB()
+    public void planBB()
     {
         alliance='B';
         rampHight='M';
@@ -40,7 +40,7 @@ public class AutoOpmodeStratagems {
         beacon=true;
         start=true;
     }
-    public void PlanBR()
+    public void planBR()
     {
         alliance='R';
         rampHight='M';
@@ -49,7 +49,7 @@ public class AutoOpmodeStratagems {
         beacon=true;
         start=true;
     }
-    public void PlanCB()
+    public void planCB()
     {
         alliance='B';
         rampHight='M';
@@ -58,7 +58,7 @@ public class AutoOpmodeStratagems {
         beacon= false;
         start=false;
     }
-    public void PlanCR()
+    public void planCR()
     {
         alliance='R';
         rampHight= 'M';
@@ -67,7 +67,7 @@ public class AutoOpmodeStratagems {
         beacon=false;
         start=false;
     }
-    public void PlanDB()
+    public void planDB()
     {
         alliance='B';
         rampHight='M';
@@ -76,7 +76,7 @@ public class AutoOpmodeStratagems {
         beacon=false;
         start=true;
     }
-    public void PlanDR()
+    public void planDR()
     {
         alliance='R';
         rampHight='M';

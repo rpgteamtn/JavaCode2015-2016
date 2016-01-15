@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.DriveDriver;
+import com.qualcomm.ftcrobotcontroller.opmodes.AutoOpmodeStratagems;
 
 /**
  * Created by Jonah on 10/31/2015.
@@ -22,7 +23,9 @@ public class RPGautoOpmode extends LinearOpMode {
     boolean climers;
     boolean beacon;
     boolean start;// true is near mountain
+
     DriveDriver DriveDriver;
+    AutoOpmodeStratagems AutoOpmodeStratagems;
 
     double bot = 17;
     double halfBot = bot / 2;
@@ -89,13 +92,7 @@ public class RPGautoOpmode extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
-        alliance = questionBool("random text");// false = red and true = blue
-        whichRamp = questionBool("random text");
-        climers = questionBool("random text");
-        beacon = questionBool("random text");
-        start = questionBool("random text");
-        questionRampHight();
-
+      AutoOpmodeStratagems.planAR();
         if (alliance = true/*we are blue*/) {
             if (start = true)// near to mountain
             {
