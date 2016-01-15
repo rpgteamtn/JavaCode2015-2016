@@ -15,7 +15,7 @@ public class rpgTeleOp extends OpMode{
     DcMotor driveMotorRF;
     DcMotor driveMotorRB;
     DcMotor debrisLiftMotor;
-    com.qualcomm.ftcrobotcontroller.opmodes.Drivers.DriveDriver DriveDriver;
+    DriveDriver DriveDriver;
     double mediumPower = 0.75;
     double smallPower = 0.5;
     // Overrides previous function
