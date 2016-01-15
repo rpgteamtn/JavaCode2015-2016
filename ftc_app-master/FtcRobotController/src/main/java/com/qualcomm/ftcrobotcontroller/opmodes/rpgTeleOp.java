@@ -15,6 +15,7 @@ public class rpgTeleOp extends OpMode{
     DcMotor driveMotorRF;
     DcMotor driveMotorRB;
     DcMotor debrisLiftMotor;
+    DcMotor debrisArmMotor;
     DriveDriver DriveDriver;
     double mediumPower = 0.75;
     double smallPower = 0.5;
@@ -33,6 +34,7 @@ public class rpgTeleOp extends OpMode{
         driveMotorRF = hardwareMap.dcMotor.get("driveMotorRF");
         driveMotorRB = hardwareMap.dcMotor.get("driveMotorRB");
         debrisLiftMotor = hardwareMap.dcMotor.get("debrisLiftMotor");
+        debrisArmMotor = hardwareMap.dcMotor.get("debrisArmMotor");
         DriveDriver = new DriveDriver(driveMotorLB, driveMotorLF, driveMotorRB, driveMotorRF);
         driveMotorRF.setDirection(DcMotor.Direction.REVERSE);
         driveMotorRB.setDirection(DcMotor.Direction.REVERSE);
@@ -59,13 +61,21 @@ public class rpgTeleOp extends OpMode{
             float right = -gamepad1.right_stick_y;
             DriveDriver.setMotors(left * mediumPower, right * mediumPower);
         }
-        if(gamepad2.right_bumper)
+        if(gamepad2.right_bumper == true)
         {
             debrisLiftMotor.setPower(1);
         }
-        if(gamepad2.left_bumper)
+        if(gamepad2.left_bumper == true)
         {
             debrisLiftMotor.setPower(-1);
+        }
+        if(gamepad2.right_stick_y)
+        {
+            debrisArmMotor.setPower(1);
+        }
+        if(-gamepad2.right_stick_y)
+        {
+            debrisArmMotor.setPower(-1);
         }
     }
 }
