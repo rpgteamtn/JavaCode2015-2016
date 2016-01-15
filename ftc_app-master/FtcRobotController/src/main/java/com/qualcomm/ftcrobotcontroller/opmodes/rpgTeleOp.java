@@ -18,6 +18,9 @@ public class rpgTeleOp extends OpMode{
     DriveDriver DriveDriver;
     double mediumPower = 0.75;
     double smallPower = 0.5;
+
+    float left;
+    float right;
     // Overrides previous function
     @Override
     public void init()
@@ -39,28 +42,28 @@ public class rpgTeleOp extends OpMode{
     public void loop() {
         // Sets values for joystick
         // Note: Applies to sides of robot not each motor
-        while((!gamepad1.right_bumper && !gamepad1.left_bumper) ||(gamepad1.right_bumper && gamepad1.left_bumper) ) {
-            float left = -gamepad1.left_stick_y;
-            float right = -gamepad1.right_stick_y;
+        if((!gamepad1.right_bumper && !gamepad1.left_bumper) ||(gamepad1.right_bumper && gamepad1.left_bumper) ) {
+             left = -gamepad1.left_stick_y;
+             right = -gamepad1.right_stick_y;
             // Sets power to each motor
             // Automatically connects motors to joystick
             DriveDriver.setMotors(left, right);
         }
-        while(gamepad1.right_bumper == true) {
-            float left = -gamepad1.left_stick_y;
-            float right = -gamepad1.right_stick_y;
+        else if(gamepad1.right_bumper == true) {
+             left = -gamepad1.left_stick_y;
+             right = -gamepad1.right_stick_y;
             DriveDriver.setMotors(left * smallPower, right * smallPower);
         }
-        while(gamepad1.left_bumper == true) {
+        else if(gamepad1.left_bumper == true) {
             float left = -gamepad1.left_stick_y;
             float right = -gamepad1.right_stick_y;
             DriveDriver.setMotors(left * mediumPower, right * mediumPower);
         }
-        while(gamepad2.right_bumper)
+        if(gamepad2.right_bumper)
         {
             debrisLiftMotor.setPower(1);
         }
-        while(gamepad2.left_bumper)
+        if(gamepad2.left_bumper)
         {
             debrisLiftMotor.setPower(-1);
         }
