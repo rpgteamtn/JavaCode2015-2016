@@ -15,8 +15,13 @@ public class rpgTeleOp extends OpMode{
     DcMotor driveMotorRF;
     DcMotor driveMotorRB;
     DcMotor debrisLiftMotor;
+<<<<<<< HEAD
+    DcMotor armMotor;
+    com.qualcomm.ftcrobotcontroller.opmodes.Drivers.DriveDriver DriveDriver;
+=======
     DcMotor debrisArmMotor;
     DriveDriver DriveDriver;
+>>>>>>> origin/master
     double mediumPower = 0.75;
     double smallPower = 0.5;
 
@@ -33,34 +38,49 @@ public class rpgTeleOp extends OpMode{
         driveMotorLF = hardwareMap.dcMotor.get("driveMotorLF");
         driveMotorRF = hardwareMap.dcMotor.get("driveMotorRF");
         driveMotorRB = hardwareMap.dcMotor.get("driveMotorRB");
+        armMotor = hardwareMap.dcMotor.get("armMotor");
         debrisLiftMotor = hardwareMap.dcMotor.get("debrisLiftMotor");
         debrisArmMotor = hardwareMap.dcMotor.get("debrisArmMotor");
         DriveDriver = new DriveDriver(driveMotorLB, driveMotorLF, driveMotorRB, driveMotorRF);
         driveMotorRF.setDirection(DcMotor.Direction.REVERSE);
         driveMotorRB.setDirection(DcMotor.Direction.REVERSE);
-
     }
     @Override
     public void loop() {
+        float left;
+        float right;
+        float armPower;
+        float armLimit = 100; //WE NEED TO SET THIS TO A LEGIT NUMBER
         // Sets values for joystick
         // Note: Applies to sides of robot not each motor
-        if((!gamepad1.right_bumper && !gamepad1.left_bumper) ||(gamepad1.right_bumper && gamepad1.left_bumper) ) {
-             left = -gamepad1.left_stick_y;
-             right = -gamepad1.right_stick_y;
-            // Sets power to each motor
-            // Automatically connects motors to joystick
-            DriveDriver.setMotors(left, right);
+
+        if(gamepad1.left_stick_y != 0 || gamepad1.right_stick_y != 0) {
+            if ((gamepad1.right_bumper == false || gamepad1.left_bumper == false)) {
+                left = -gamepad1.left_stick_y;
+                right = -gamepad1.right_stick_y;
+                // Sets power to each motor
+                // Automatically connects motors to joystick
+                DriveDriver.setMotors(left, right);
+            } else if (gamepad1.right_bumper == true) {
+                left = -gamepad1.left_stick_y;
+                right = -gamepad1.right_stick_y;
+                DriveDriver.setMotors(left * smallPower, right * smallPower);
+            } else if (gamepad1.left_bumper == true) {
+                left = -gamepad1.left_stick_y;
+                right = -gamepad1.right_stick_y;
+                DriveDriver.setMotors(left * mediumPower, right * mediumPower);
+            }
         }
-        else if(gamepad1.right_bumper == true) {
-             left = -gamepad1.left_stick_y;
-             right = -gamepad1.right_stick_y;
-            DriveDriver.setMotors(left * smallPower, right * smallPower);
-        }
-        else if(gamepad1.left_bumper == true) {
-            float left = -gamepad1.left_stick_y;
-            float right = -gamepad1.right_stick_y;
-            DriveDriver.setMotors(left * mediumPower, right * mediumPower);
-        }
+        if(armMotorValue <= armLimit) {
+            while (gamepad2.right_stick_y > 0) {
+                armPower = gamepad2.right_stick_y;
+                armMotor.setPower(armPower); //when the stick is forward, arm goes forward
+            }
+            while (gamepad2.right_stick_y < 0) {
+                armPower = -gamepad2.right_stick_y;
+                armMotor.setPower(armPower); //when the stick is backwards, arm goes backwards
+            }
+
         if(gamepad2.right_bumper == true)
         {
             debrisLiftMotor.setPower(1);
@@ -69,13 +89,6 @@ public class rpgTeleOp extends OpMode{
         {
             debrisLiftMotor.setPower(-1);
         }
-        if(gamepad2.right_stick_y)
-        {
-            debrisArmMotor.setPower(1);
-        }
-        if(-gamepad2.right_stick_y)
-        {
-            debrisArmMotor.setPower(-1);
-        }
+
     }
 }
