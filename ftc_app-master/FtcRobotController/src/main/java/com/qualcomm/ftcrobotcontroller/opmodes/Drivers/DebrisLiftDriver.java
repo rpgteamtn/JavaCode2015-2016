@@ -28,6 +28,7 @@ public class DebrisLiftDriver extends OpMode {
         if (gamepad1.dpad_down) {
             debrisLiftMotor.setPower(-1);
         }
+        // Stops debrisLiftMotor
         if (gamepad1.x) {
             debrisLiftMotor.setPower(0);
         }
