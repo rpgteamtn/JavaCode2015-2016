@@ -9,7 +9,7 @@ import java.lang.Override;
 /**
  * Created by Jonah on 12/19/2015.
  */
-public class rpgTeleOp extends OpMode{
+public class rpgTeleOp extends OpMode {
     DcMotor driveMotorLF;
     DcMotor driveMotorLB;
     DcMotor driveMotorRF;
@@ -25,10 +25,10 @@ public class rpgTeleOp extends OpMode{
 
     double mediumPower = 0.75;
     double smallPower = 0.5;
+
     // Overrides previous function
     @Override
-    public void init()
-    {
+    public void init() {
         // Connects program motors to actual motors
         // Applys to individual motors
         // Programs for ran on driverMotor now apply to robot motors
@@ -42,6 +42,7 @@ public class rpgTeleOp extends OpMode{
         driveMotorRF.setDirection(DcMotor.Direction.REVERSE);
         driveMotorRB.setDirection(DcMotor.Direction.REVERSE);
     }
+
     @Override
     public void loop() {
 
@@ -49,7 +50,7 @@ public class rpgTeleOp extends OpMode{
         // Note: Applies to sides of robot not each motor
 
 
-        if(gamepad1.left_stick_y != 0 || gamepad1.right_stick_y != 0) {
+        if (gamepad1.left_stick_y != 0 || gamepad1.right_stick_y != 0) {
             if ((gamepad1.right_bumper == false || gamepad1.left_bumper == false)) {
                 left = -gamepad1.left_stick_y;
                 right = -gamepad1.right_stick_y;
@@ -66,7 +67,7 @@ public class rpgTeleOp extends OpMode{
                 DriveDriver.setMotors(left * mediumPower, right * mediumPower);
             }
         }
-        if(armMotorValue <= armLimit) {
+        if (armMotorValue <= armLimit) {
             while (gamepad2.right_stick_y > 0) {
                 armPower = gamepad2.right_stick_y;
                 armMotor.setPower(armPower); //when the stick is forward, arm goes forward
@@ -76,14 +77,13 @@ public class rpgTeleOp extends OpMode{
                 armMotor.setPower(armPower); //when the stick is backwards, arm goes backwards
             }
 
-        if(gamepad2.right_bumper == true)
-        {
-            debrisLiftMotor.setPower(1);
-        }
-        if(gamepad2.left_bumper == true)
-        {
-            debrisLiftMotor.setPower(-1);
-        }
+            if (gamepad2.right_bumper == true) {
+                debrisLiftMotor.setPower(1);
+            }
+            if (gamepad2.left_bumper == true) {
+                debrisLiftMotor.setPower(-1);
+            }
 
+        }
     }
 }
