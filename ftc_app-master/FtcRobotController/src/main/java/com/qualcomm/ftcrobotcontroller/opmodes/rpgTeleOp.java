@@ -25,7 +25,7 @@ public class rpgTeleOp extends OpMode {
     float right;
     float armPower;
     float servoOpen = 100;
-    float servoClosed= 100;
+    float servoClosed = 100;
     boolean OC;
     boolean servoSwitched = false;
 
@@ -33,11 +33,12 @@ public class rpgTeleOp extends OpMode {
     double smallPower = 0.5;
 
     double diameter = 1.95;
-    double circumference = diameter*Math.PI;
+    double circumference = diameter * Math.PI;
     double maxlength = 30;
-    double rotations = maxlength/circumference;
+    double rotations = maxlength / circumference;
     double CPR = 1440;
-    double armLimit = rotations*CPR;
+    double armLimit = rotations * CPR;
+
     // Overrides previous function
     @Override
     public void init() {
@@ -64,58 +65,57 @@ public class rpgTeleOp extends OpMode {
         // Note: Applies to sides of robot not each motor
 
 
-        if (gamepad1.left_stick_y != 0 || gamepad1.right_stick_y != 0) {
-            if ((gamepad1.right_bumper == false || gamepad1.left_bumper == false)) {
-                left = -gamepad1.left_stick_y;
-                right = -gamepad1.right_stick_y;
+        if (gamepad2.left_stick_y != 0 || gamepad2.right_stick_y != 0) {
+            if ((!gamepad2.right_bumper || !gamepad2.left_bumper)) {
+                left = -gamepad2.left_stick_y;
+                right = -gamepad2.right_stick_y;
                 // Sets power to each motor
                 // Automatically connects motors to joystick
                 DriveDriver.setMotors(left, right);
-            } else if (gamepad1.right_bumper == true) {
-                left = -gamepad1.left_stick_y;
-                right = -gamepad1.right_stick_y;
+            } else if (gamepad2.right_bumper) {
+                left = -gamepad2.left_stick_y;
+                right = -gamepad2.right_stick_y;
                 DriveDriver.setMotors(left * smallPower, right * smallPower);
-            } else if (gamepad1.left_bumper == true) {
-                left = -gamepad1.left_stick_y;
-                right = -gamepad1.right_stick_y;
+            } else if (gamepad2.left_bumper) {
+                left = -gamepad2.left_stick_y;
+                right = -gamepad2.right_stick_y;
                 DriveDriver.setMotors(left * mediumPower, right * mediumPower);
             }
         }
 
         armMotorValue = armMotor.getCurrentPosition();
-        if ((armMotorValue <= armLimit)&&(gamepad2.right_stick_y != 0))
-        {
-                armPower = -gamepad2.right_stick_y;
-                armMotor.setPower(armPower); //when the stick is forward, arm goes forward
-                armMotorValue = armMotor.getCurrentPosition();
+        if ((armMotorValue <= armLimit) && (gamepad1.right_stick_y != 0)) {
+            armPower = -gamepad1.right_stick_y;
+            armMotor.setPower(armPower); //when the stick is forward, arm goes forward
+            armMotorValue = armMotor.getCurrentPosition();
         }
 
-            if (gamepad2.right_bumper == true) {
-                debrisLiftMotor.setPower(1);
-            }
-            if (gamepad2.left_bumper == true) {
-                debrisLiftMotor.setPower(-1);
-            }
+        if (gamepad1.right_bumper) {
+            debrisLiftMotor.setPower(1);
+        }
+        if (gamepad1.left_bumper) {
+            debrisLiftMotor.setPower(-1);
+        }
 
-        if(gamepad2.a == true)
-        {
-            if(servoSwitched = false){
-            if(OC == true)
+        /*if(gamepad2.a) {
+            if(!servoSwitched){
+            if(OC)
             {
                // debrisServo.setPosition(servoClosed);
                 OC = false;
                 servoSwitched = true;
             }
-            if(OC == false) {
+            if(!OC) {
                 //debrisServo.setPosition(servoOpen);
                 OC = true;
                 servoSwitched = true;
             }
         }
         }
-        if((gamepad2.a == false)&&(servoSwitched = true))
+        if((!gamepad2.a)&&(servoSwitched = true))
         {
             servoSwitched = false;
         }
+    }*/
     }
 }
