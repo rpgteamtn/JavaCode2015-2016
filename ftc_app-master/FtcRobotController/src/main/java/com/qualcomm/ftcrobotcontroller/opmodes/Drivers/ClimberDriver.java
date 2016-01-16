@@ -15,12 +15,13 @@ public class ClimberDriver {
     public ClimberDriver(DcMotor cm) {
         ClimberMotor = cm;
     }
-
+    
     public void dropClimbers()
     {
+        // Encoders will measure distance travelled
         ClimberMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         ClimberMotor.setTargetPosition(counts);
-
+        // Keeps track of power
         ClimberMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
         ClimberMotor.setPower(power);
     }
