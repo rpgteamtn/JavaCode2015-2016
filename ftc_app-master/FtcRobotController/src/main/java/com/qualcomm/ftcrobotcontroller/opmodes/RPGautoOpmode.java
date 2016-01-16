@@ -60,7 +60,7 @@ public class RPGautoOpmode extends LinearOpMode {
     double angE = 135;
 
     double power = .7;
-
+    
     public double reverseAngle(double num) {
         return num = num * -1;
     }

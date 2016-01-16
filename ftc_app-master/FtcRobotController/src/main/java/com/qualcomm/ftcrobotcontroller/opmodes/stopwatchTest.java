@@ -48,7 +48,6 @@ public class stopwatchTest extends OpMode {
 
     private String startDate;
     private ElapsedTime runtime = new ElapsedTime();
-    boolean firstGo = true;
 
     DcMotor driveMotorLF;
     DcMotor driveMotorLB;
@@ -86,11 +85,6 @@ public class stopwatchTest extends OpMode {
      */
     @Override
     public void loop() {
-        if(firstGo == true)
-        {
-            runtime.reset();
-            firstGo = false;
-        }
         telemetry.addData("1 Start", "NullOp started at " + startDate);
         telemetry.addData("2 Status", "running for " + runtime.toString());
 
