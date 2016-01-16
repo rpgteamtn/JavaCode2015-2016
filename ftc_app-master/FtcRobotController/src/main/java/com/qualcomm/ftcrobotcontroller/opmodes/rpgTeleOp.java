@@ -24,7 +24,6 @@ public class rpgTeleOp extends OpMode {
     float left;
     float right;
     float armPower;
-    float armLimit = 100; //WE NEED TO SET THIS TO A LEGIT NUMBER
     float servoOpen = 100;
     float servoClosed= 100;
     boolean OC;
@@ -33,6 +32,12 @@ public class rpgTeleOp extends OpMode {
     double mediumPower = 0.75;
     double smallPower = 0.5;
 
+    double diameter = 1.95;
+    double circumference = diameter*Math.PI;
+    double maxlength = 72;
+    double rotations = maxlength/circumference;
+    double CPR = 1440;
+    double armLimit = rotations*CPR;
     // Overrides previous function
     @Override
     public void init() {
@@ -76,15 +81,13 @@ public class rpgTeleOp extends OpMode {
                 DriveDriver.setMotors(left * mediumPower, right * mediumPower);
             }
         }
-        if (armMotorValue <= armLimit) {
-            while (gamepad2.right_stick_y > 0) {
-                armPower = gamepad2.right_stick_y;
-                armMotor.setPower(armPower); //when the stick is forward, arm goes forward
-            }
-            while (gamepad2.right_stick_y < 0) {
+
+        armMotorValue = armMotor.getCurrentPosition();
+        if ((armMotorValue <= armLimit)&&(gamepad2.right_stick_y != 0)
+        {
                 armPower = -gamepad2.right_stick_y;
-                armMotor.setPower(armPower); //when the stick is backwards, arm goes backwards
-            }
+                armMotor.setPower(armPower); //when the stick is forward, arm goes forward
+                armMotorValue = armMotor.getCurrentPosition();
         }
 
             if (gamepad2.right_bumper == true) {
