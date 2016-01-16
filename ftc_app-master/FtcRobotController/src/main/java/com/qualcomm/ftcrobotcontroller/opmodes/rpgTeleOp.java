@@ -15,18 +15,14 @@ public class rpgTeleOp extends OpMode{
     DcMotor driveMotorRF;
     DcMotor driveMotorRB;
     DcMotor debrisLiftMotor;
-<<<<<<< HEAD
-<<<<<<< HEAD
     DcMotor armMotor;
-    com.qualcomm.ftcrobotcontroller.opmodes.Drivers.DriveDriver DriveDriver;
-=======
-    DcMotor debrisArmMotor;
     DriveDriver DriveDriver;
->>>>>>> origin/master
-=======
-    DcMotor armMotor;
-    com.qualcomm.ftcrobotcontroller.opmodes.Drivers.DriveDriver DriveDriver;
->>>>>>> origin/master
+    int armMotorValue;
+    float left;
+    float right;
+    float armPower;
+    float armLimit = 100; //WE NEED TO SET THIS TO A LEGIT NUMBER
+
     double mediumPower = 0.75;
     double smallPower = 0.5;
     // Overrides previous function
@@ -48,10 +44,7 @@ public class rpgTeleOp extends OpMode{
     }
     @Override
     public void loop() {
-        float left;
-        float right;
-        float armPower;
-        float armLimit = 100; //WE NEED TO SET THIS TO A LEGIT NUMBER
+
         // Sets values for joystick
         // Note: Applies to sides of robot not each motor
 
