@@ -69,7 +69,7 @@ public class rpgTeleOp extends OpMode{
         {
             debrisLiftMotor.setPower(-1);
         }
-        if(gamepad2.right_stick_y)
+        if(gamepad2.right_stick_y
         {
             debrisArmMotor.setPower(1);
         }
