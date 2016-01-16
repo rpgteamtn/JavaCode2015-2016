@@ -80,6 +80,9 @@ public class rpgTeleOp extends OpMode {
                 left = -gamepad1.left_stick_y;
                 right = -gamepad1.right_stick_y;
                 DriveDriver.setMotors(left * mediumPower, right * mediumPower);
+            } else if (gamepad1.left_bumper == true && gamepad1.right_bumper) {
+                left = -gamepad1.left_stick_y;
+                right = -gamepad1.right_stick_y;
             }
         }
 
