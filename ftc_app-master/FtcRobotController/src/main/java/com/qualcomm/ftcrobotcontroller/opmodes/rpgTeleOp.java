@@ -17,7 +17,7 @@ public class rpgTeleOp extends OpMode {
     DcMotor driveMotorRB;
     DcMotor debrisLiftMotor;
     DcMotor armMotor;
-    Servo debrisServo;
+    //Servo debrisServo;
 
     DriveDriver DriveDriver;
     int armMotorValue;
@@ -34,7 +34,7 @@ public class rpgTeleOp extends OpMode {
 
     double diameter = 1.95;
     double circumference = diameter*Math.PI;
-    double maxlength = 72;
+    double maxlength = 30;
     double rotations = maxlength/circumference;
     double CPR = 1440;
     double armLimit = rotations*CPR;
@@ -50,7 +50,7 @@ public class rpgTeleOp extends OpMode {
         driveMotorRB = hardwareMap.dcMotor.get("driveMotorRB");
         armMotor = hardwareMap.dcMotor.get("armMotor");
         debrisLiftMotor = hardwareMap.dcMotor.get("debrisLiftMotor");
-        debrisServo = hardwareMap.servo.get("debrisServo");
+        //debrisServo = hardwareMap.servo.get("debrisServo");
 
         DriveDriver = new DriveDriver(driveMotorLB, driveMotorLF, driveMotorRB, driveMotorRF);
         driveMotorRF.setDirection(DcMotor.Direction.REVERSE);
@@ -83,7 +83,7 @@ public class rpgTeleOp extends OpMode {
         }
 
         armMotorValue = armMotor.getCurrentPosition();
-        if ((armMotorValue <= armLimit)&&(gamepad2.right_stick_y != 0)
+        if ((armMotorValue <= armLimit)&&(gamepad2.right_stick_y != 0))
         {
                 armPower = -gamepad2.right_stick_y;
                 armMotor.setPower(armPower); //when the stick is forward, arm goes forward
@@ -102,12 +102,12 @@ public class rpgTeleOp extends OpMode {
             if(servoSwitched = false){
             if(OC == true)
             {
-                debrisServo.setPosition(servoClosed);
+               // debrisServo.setPosition(servoClosed);
                 OC = false;
                 servoSwitched = true;
             }
             if(OC == false) {
-                debrisServo.setPosition(servoOpen);
+                //debrisServo.setPosition(servoOpen);
                 OC = true;
                 servoSwitched = true;
             }
