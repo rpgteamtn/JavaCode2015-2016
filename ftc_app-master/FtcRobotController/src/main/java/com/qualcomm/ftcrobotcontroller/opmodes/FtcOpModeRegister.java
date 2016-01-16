@@ -38,7 +38,6 @@ import com.qualcomm.ftcrobotcontroller.opmodes.DriveTrain;
 //import com.qualcomm.ftcrobotcontroller.opmodes.other.K9TeleOp;
 //import com.qualcomm.ftcrobotcontroller.opmodes.other.MatrixK9TeleOp;
 //import com.qualcomm.ftcrobotcontroller.opmodes.other.NullOp;
-
 //import com.qualcomm.ftcrobotcontroller.opmodes.other.PushBotAuto;
 //import com.qualcomm.ftcrobotcontroller.opmodes.other.PushBotManual;
 import com.qualcomm.robotcore.eventloop.opmode.OpModeManager;
@@ -66,16 +65,18 @@ public class FtcOpModeRegister implements OpModeRegister {
      */
 
     //**************Team RPG's opModes******************\\
-    manager.register("DriveTrain", DriveTrain.class);
+   // manager.register("DriveTrain", DriveTrain.class);
     //manager.register("TestBot", TestBot.class);
     //manager.register("TimerTest", TimerTest.class);
     //manager.register("TesterMotors", TesterMotors.class);
-    manager.register("RPGautoOpmode", RPGautoOpmode.class);
+    //manager.register("RPGautoOpmode", RPGautoOpmode.class);
     //manager.register("RunTester", RunTester.class);
-   manager.register("stopwatchTest", stopwatchTest.class);
     manager.register("rpgTeleOp", rpgTeleOp.class);
-    //manager.register("DebrisLiftDriver", DebrisLiftDriver.class);
-    manager.register("NullOp", NullOp.class);
+    manager.register("DebrisLiftDriver", DebrisLiftDriver.class);
+
+
+
+   // manager.register("NullOp", NullOp.class);
 
    // manager.register("MatrixK9TeleOp", MatrixK9TeleOp.class);
     //manager.register("K9TeleOp", K9TeleOp.class);

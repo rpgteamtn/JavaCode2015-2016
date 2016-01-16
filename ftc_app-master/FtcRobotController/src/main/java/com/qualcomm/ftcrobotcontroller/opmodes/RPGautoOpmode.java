@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.DriveDriver;
-import com.qualcomm.ftcrobotcontroller.opmodes.AutoOpmodeStratagems;
 
 /**
  * Created by Jonah on 10/31/2015.
@@ -23,9 +22,7 @@ public class RPGautoOpmode extends LinearOpMode {
     boolean climers;
     boolean beacon;
     boolean start;// true is near mountain
-
     DriveDriver DriveDriver;
-    AutoOpmodeStratagems AutoOpmodeStratagems;
 
     double bot = 17;
     double halfBot = bot / 2;
@@ -60,14 +57,45 @@ public class RPGautoOpmode extends LinearOpMode {
     double angE = 135;
 
     double power = .7;
-    
+
+    public void questionRampHight() {
+        /*AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+        builder1.setMessage("Write your message here.");
+        builder1.setCancelable(true);
+        builder1.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        builder1.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });*/
+        char rampHeight = 'P';
+    }
+
+    public Boolean questionBool(String text) {
+        //desplay answers and question
+        Boolean answer = false; // add answer
+        return answer;
+    }
+
     public double reverseAngle(double num) {
         return num = num * -1;
     }
 
     @Override
     public void runOpMode() throws InterruptedException {
-      AutoOpmodeStratagems.planAR();
+        alliance = questionBool("random text");// false = red and true = blue
+        whichRamp = questionBool("random text");
+        climers = questionBool("random text");
+        beacon = questionBool("random text");
+        start = questionBool("random text");
+        questionRampHight();
+
         if (alliance = true/*we are blue*/) {
             if (start = true)// near to mountain
             {
