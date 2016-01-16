@@ -3,6 +3,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.DriveDriver;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.Servo;
 
 import java.lang.Override;
 
@@ -16,12 +17,18 @@ public class rpgTeleOp extends OpMode {
     DcMotor driveMotorRB;
     DcMotor debrisLiftMotor;
     DcMotor armMotor;
+    Servo debrisServo;
+
     DriveDriver DriveDriver;
     int armMotorValue;
     float left;
     float right;
     float armPower;
     float armLimit = 100; //WE NEED TO SET THIS TO A LEGIT NUMBER
+    float servoOpen = 100;
+    float servoClosed= 100;
+    boolean OC;
+    boolean servoSwitched = false;
 
     double mediumPower = 0.75;
     double smallPower = 0.5;
@@ -38,6 +45,8 @@ public class rpgTeleOp extends OpMode {
         driveMotorRB = hardwareMap.dcMotor.get("driveMotorRB");
         armMotor = hardwareMap.dcMotor.get("armMotor");
         debrisLiftMotor = hardwareMap.dcMotor.get("debrisLiftMotor");
+        debrisServo = hardwareMap.servo.get("debrisServo");
+
         DriveDriver = new DriveDriver(driveMotorLB, driveMotorLF, driveMotorRB, driveMotorRF);
         driveMotorRF.setDirection(DcMotor.Direction.REVERSE);
         driveMotorRB.setDirection(DcMotor.Direction.REVERSE);
@@ -76,6 +85,7 @@ public class rpgTeleOp extends OpMode {
                 armPower = -gamepad2.right_stick_y;
                 armMotor.setPower(armPower); //when the stick is backwards, arm goes backwards
             }
+        }
 
             if (gamepad2.right_bumper == true) {
                 debrisLiftMotor.setPower(1);
@@ -84,6 +94,25 @@ public class rpgTeleOp extends OpMode {
                 debrisLiftMotor.setPower(-1);
             }
 
+        if(gamepad2.a == true)
+        {
+            if(servoSwitched = false){
+            if(OC == true)
+            {
+                debrisServo.setPosition(servoClosed);
+                OC = false;
+                servoSwitched = true;
+            }
+            if(OC == false) {
+                debrisServo.setPosition(servoOpen);
+                OC = true;
+                servoSwitched = true;
+            }
+        }
+        }
+        if((gamepad2.a == false)&&(servoSwitched = true))
+        {
+            servoSwitched = false;
         }
     }
 }
