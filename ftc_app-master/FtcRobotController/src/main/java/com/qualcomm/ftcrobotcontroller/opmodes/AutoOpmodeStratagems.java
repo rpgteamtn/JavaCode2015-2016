@@ -6,86 +6,86 @@ import com.qualcomm.robotcore.hardware.DcMotor;
  * Created by Jonah on 11/21/2015.
  */
 public class AutoOpmodeStratagems {
-    char alliance;//blue  is true
+    Boolean alliance;//blue  is true
     char rampHight;
-    char whichRamp; //blue  is true
+    boolean whichRamp; //blue  is true
     boolean climers;
     boolean beacon;
     boolean start;// true is near mountain
 
-    public void PlanAB()
+    public void planAB()
     {
-         alliance='B';
+         alliance=true;
          rampHight='M';
-         whichRamp='B';
+         whichRamp=true;
          climers=true;
          beacon=true;
          start=false;
     }
-    public void PlanAR()
+    public void planAR()
     {
-        alliance='R';
-        rampHight='M';
-        whichRamp='R';
+        alliance=false;
+        rampHight='L';
+        whichRamp=false;
         climers=true;
         beacon=true;
         start=false;
     }
-    public void PlanBB()
+    public void planBB()
     {
-        alliance='B';
+        alliance=true;
         rampHight='M';
-        whichRamp='B';
+        whichRamp=true;
         climers=true;
         beacon=true;
         start=true;
     }
-    public void PlanBR()
+    public void planBR()
     {
-        alliance='R';
+        alliance=false;
         rampHight='M';
-        whichRamp='R';
+        whichRamp=false;
         climers=true;
         beacon=true;
         start=true;
     }
-    public void PlanCB()
+    public void planCB()
     {
-        alliance='B';
+        alliance=true;
         rampHight='M';
-        whichRamp='B';
+        whichRamp=true;
         climers=true;
         beacon= false;
         start=false;
     }
-    public void PlanCR()
+    public void planCR()
     {
-        alliance='R';
+        alliance=false;
         rampHight= 'M';
-        whichRamp='R';
+        whichRamp=false;
         climers=true;
         beacon=false;
         start=false;
     }
-    public void PlanDB()
+    public void planDB()
     {
-        alliance='B';
+        alliance=true;
         rampHight='M';
-        whichRamp='B';
+        whichRamp=true;
         climers=true;
         beacon=false;
         start=true;
     }
-    public void PlanDR()
+    public void planDR()
     {
-        alliance='R';
+        alliance=false;
         rampHight='M';
-        whichRamp='R';
+        whichRamp=false;
         climers=true;
         beacon=false;
         start=true;
     }
-    public AutoOpmodeStratagems(char Alliance, char RampHight, char WhichRamp, boolean Climers, boolean Beacon, boolean Start)
+    public AutoOpmodeStratagems(boolean Alliance, char RampHight, Boolean WhichRamp, boolean Climers, boolean Beacon, boolean Start)
     {
         alliance = Alliance;
         rampHight = RampHight;
