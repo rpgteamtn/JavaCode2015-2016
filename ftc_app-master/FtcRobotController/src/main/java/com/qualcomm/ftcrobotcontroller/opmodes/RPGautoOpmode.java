@@ -18,9 +18,9 @@ import com.qualcomm.ftcrobotcontroller.opmodes.AutoOpmodeStratagems;
         */
 public class RPGautoOpmode extends LinearOpMode {
     boolean alliance;//blue  is true
-    char rampHight;
+    char rampHeight;
     boolean whichRamp; //blue  is true
-    boolean climers;
+    boolean climbers;
     boolean beacon;
     boolean start;// true is near mountain
     DriveDriver DriveDriver;
@@ -67,27 +67,27 @@ public class RPGautoOpmode extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         alliance=false;
-        rampHight='L';
+        rampHeight='L';
         whichRamp=false;
-        climers=true;
+        climbers=true;
         beacon=true;
         start=false;
 
         if (alliance = true/*we are blue*/) {
             if (start = true)// near to mountain
             {
-                if ((climers = true) || (beacon = true)) {
+                if ((climbers = true) || (beacon = true)) {
                     DriveDriver.moveDist(distI, power);
                     DriveDriver.turn(reverseAngle(angE), power);//ang I
                     DriveDriver.moveDist((distA+distB-distJ), power);
                     DriveDriver.turn(reverseAngle(angB), power);// blue angle B
                     DriveDriver.moveDist((distC + distE), power);
 
-                    if ((climers = true) || (beacon = true)) {
+                    if ((climbers = true) || (beacon = true)) {
                         //do climers and beacons
-                    } else if ((climers = false) || (beacon = true)) {
+                    } else if ((climbers = false) || (beacon = true)) {
                         //do beacons
-                    } else if ((climers = true) || (beacon = false)) {
+                    } else if ((climbers = true) || (beacon = false)) {
                         //do climers
                     } else {
                         //do nothing. this shouldnt accure
@@ -113,7 +113,7 @@ public class RPGautoOpmode extends LinearOpMode {
                     DriveDriver.moveDist(distN, power);
 
                 }
-                switch (rampHight) {
+                switch (rampHeight) {
                     case 'P':
                         DriveDriver.moveDist(distPm, power);
                     case 'L':
@@ -125,16 +125,16 @@ public class RPGautoOpmode extends LinearOpMode {
                 }
             } else// near to line
             {
-                if ((climers = true) || (beacon = true)) {
+                if ((climbers = true) || (beacon = true)) {
                     DriveDriver.moveDist((distA + distB), power);
                     DriveDriver.turn(reverseAngle(angB), power);// blue angle B
                     DriveDriver.moveDist((distC + distE), power);
 
-                    if ((climers = true) || (beacon = true)) {
+                    if ((climbers = true) || (beacon = true)) {
                         //do climers and beacons
-                    } else if ((climers = false) || (beacon = true)) {
+                    } else if ((climbers = false) || (beacon = true)) {
                         //do beacons
-                    } else if ((climers = true) || (beacon = false)) {
+                    } else if ((climbers = true) || (beacon = false)) {
                         //do climers
                     } else {
                         //do nothing. this shouldnt accure
@@ -165,7 +165,7 @@ public class RPGautoOpmode extends LinearOpMode {
                     }
 
                 }
-                switch (rampHight) {
+                switch (rampHeight) {
                     case 'P':
                         DriveDriver.moveDist(distPm, power);
                     case 'L':
@@ -182,18 +182,18 @@ public class RPGautoOpmode extends LinearOpMode {
         {
             if (start = true)// near to mountain
             {
-                if ((climers = true) || (beacon = true)) {
+                if ((climbers = true) || (beacon = true)) {
                     DriveDriver.moveDist(distI, power);
                     DriveDriver.turn(angE, power);
                     DriveDriver.moveDist(distA + distB - distJ, power);
                     DriveDriver.turn(angB, power);
                     DriveDriver.moveDist(distC + distE, power);
 
-                    if ((climers = true) || (beacon = true)) {
+                    if ((climbers = true) || (beacon = true)) {
                         //do climers and beacons
-                    } else if ((climers = false) || (beacon = true)) {
+                    } else if ((climbers = false) || (beacon = true)) {
                         //do beacons
-                    } else if ((climers = true) || (beacon = false)) {
+                    } else if ((climbers = true) || (beacon = false)) {
                         //do climers
                     } else {
                         //do nothing. this shouldnt accure
@@ -218,7 +218,7 @@ public class RPGautoOpmode extends LinearOpMode {
                     DriveDriver.turn(angB, power);
                     DriveDriver.moveDist(distN, power);
                 }
-                switch (rampHight) {
+                switch (rampHeight) {
                     case 'P':
                         DriveDriver.moveDist(distPm, power);
                     case 'L':
@@ -231,16 +231,16 @@ public class RPGautoOpmode extends LinearOpMode {
 
             } else// near to line
             {
-                if ((climers = true) || (beacon = true)) {
+                if ((climbers = true) || (beacon = true)) {
                     DriveDriver.moveDist((distA + distB), power);
                     DriveDriver.turn(angB, power);// angle B
                     DriveDriver.moveDist((distC + distE), power);
 
-                    if ((climers = true) || (beacon = true)) {
+                    if ((climbers = true) || (beacon = true)) {
                         //do climers and beacons
-                    } else if ((climers = false) || (beacon = true)) {
+                    } else if ((climbers = false) || (beacon = true)) {
                         //do beacons
-                    } else if ((climers = true) || (beacon = false)) {
+                    } else if ((climbers = true) || (beacon = false)) {
                         //do climers
                     } else {
                         //do nothing. this shouldnt accure
@@ -271,7 +271,7 @@ public class RPGautoOpmode extends LinearOpMode {
                     }
 
                 }
-                switch (rampHight) {
+                switch (rampHeight) {
                     case 'P':
                         DriveDriver.moveDist(distPm, power);
                     case 'L':
