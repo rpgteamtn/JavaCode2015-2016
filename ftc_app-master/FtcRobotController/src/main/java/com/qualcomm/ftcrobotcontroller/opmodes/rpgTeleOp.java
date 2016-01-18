@@ -85,22 +85,16 @@ public class rpgTeleOp extends OpMode {
 
         armMotorValue = armMotor.getCurrentPosition();
         if ((armMotorValue <= armLimit) && (gamepad1.right_stick_y != 0)) {
-            armPower = -gamepad1.right_stick_y;
+            armPower = -gamepad2.right_stick_y;
             armMotor.setPower(armPower); //when the stick is forward, arm goes forward
             armMotorValue = armMotor.getCurrentPosition();
         }
 
-<<<<<<< HEAD
-        if (gamepad2.right_bumper) {
-            debrisLiftMotor.setPower(1);
-        }
-        if (gamepad2.left_bumper) {
-=======
         if (gamepad2.dpad_up) {
             debrisLiftMotor.setPower(1);
         }
         if (gamepad2.dpad_down) {
->>>>>>> origin/master
+
             debrisLiftMotor.setPower(-1);
         }
 
