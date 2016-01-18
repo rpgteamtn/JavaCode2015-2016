@@ -15,7 +15,7 @@ public class ClimberDriver {
     public ClimberDriver(DcMotor cm) {
         ClimberMotor = cm;
     }
-    
+
     public void dropClimbers()
     {
         // Encoders will measure distance travelled
