@@ -90,10 +90,10 @@ public class rpgTeleOp extends OpMode {
             armMotorValue = armMotor.getCurrentPosition();
         }
 
-        if (gamepad1.right_bumper) {
+        if (gamepad2.dpad_up) {
             debrisLiftMotor.setPower(1);
         }
-        if (gamepad1.left_bumper) {
+        if (gamepad2.dpad_down) {
             debrisLiftMotor.setPower(-1);
         }
 
