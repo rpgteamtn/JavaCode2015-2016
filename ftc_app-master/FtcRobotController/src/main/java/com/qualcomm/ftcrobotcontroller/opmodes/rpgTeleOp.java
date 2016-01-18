@@ -21,8 +21,8 @@ public class rpgTeleOp extends OpMode {
 
     DriveDriver DriveDriver;
     int armMotorValue;
-    float left;
-    float right;
+    double left;
+    double right;
     float armPower;
     float servoOpen = 100;
     float servoClosed = 100;
@@ -64,15 +64,16 @@ public class rpgTeleOp extends OpMode {
         // Sets values for joystick
         // Note: Applies to sides of robot not each motor
 
+       // if ((gamepad1.left_stick_y != 0) && (gamepad1.right_stick_y != 0)) {
+            left = -gamepad1.left_stick_y;
+            right = -gamepad1.right_stick_y;
+            // Sets power to each motor
+            // Automatically connects motors to joystick
+            DriveDriver.setMotors(left, right);
 
-        if (gamepad1.left_stick_y != 0 || gamepad1.right_stick_y != 0) {
-            if ((!gamepad1.right_bumper || !gamepad1.left_bumper)) {
-                left = -gamepad1.left_stick_y;
-                right = -gamepad1.right_stick_y;
-                // Sets power to each motor
-                // Automatically connects motors to joystick
-                DriveDriver.setMotors(left, right);
-            } else if (gamepad1.right_bumper) {
+           // if ((!gamepad1.right_bumper || !gamepad1.left_bumper)) {
+
+          /*  } else if (gamepad1.right_bumper) {
                 left = -gamepad1.left_stick_y;
                 right = -gamepad1.right_stick_y;
                 DriveDriver.setMotors(left * smallPower, right * smallPower);
@@ -80,24 +81,33 @@ public class rpgTeleOp extends OpMode {
                 left = -gamepad1.left_stick_y;
                 right = -gamepad1.right_stick_y;
                 DriveDriver.setMotors(left * mediumPower, right * mediumPower);
-            }
-        }
+            }*/
 
-        armMotorValue = armMotor.getCurrentPosition();
-        if ((armMotorValue <= armLimit) && (gamepad1.right_stick_y != 0)) {
+
+
+        if ((Math.abs(armMotor.getCurrentPosition()) >= 5500)&& (-gamepad2.right_stick_y > 0))
+        {
+            armMotor.setPower(0);
+        }
+        else
+        {
             armPower = -gamepad2.right_stick_y;
             armMotor.setPower(armPower); //when the stick is forward, arm goes forward
-            armMotorValue = armMotor.getCurrentPosition();
         }
+
 
         if (gamepad2.dpad_up) {
             debrisLiftMotor.setPower(1);
         }
-        if (gamepad2.dpad_down) {
+        else if (gamepad2.dpad_down) {
 
             debrisLiftMotor.setPower(-1);
         }
 
+        else
+        {
+            debrisLiftMotor.setPower(0);
+        }
         /*if(gamepad2.a) {
             if(!servoSwitched){
             if(OC)
