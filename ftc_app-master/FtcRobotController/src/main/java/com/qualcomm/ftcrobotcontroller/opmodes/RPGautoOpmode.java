@@ -59,9 +59,11 @@ public class RPGautoOpmode extends LinearOpMode {
     double angE = 135;
 
     double power = .7;
+    double blueAngle;
 
     public double reverseAngle(double num) {
-        return num = num * -1;
+         blueAngle = num*-1;
+        return blueAngle;
     }
 
     @Override
@@ -281,7 +283,6 @@ public class RPGautoOpmode extends LinearOpMode {
                     case 'H':
                         DriveDriver.moveDist(distHm, power);
                 }
-
             }
         }
     }
