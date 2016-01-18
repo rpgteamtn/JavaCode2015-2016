@@ -81,9 +81,8 @@ public class rpgTeleOp extends OpMode {
                 left = -gamepad1.left_stick_y;
                 right = -gamepad1.right_stick_y;
                 DriveDriver.setMotors(left * mediumPower, right * mediumPower);
+
             }*/
-
-
 
         if ((Math.abs(armMotor.getCurrentPosition()) >= 5500)&& (-gamepad2.right_stick_y > 0))
         {
