@@ -93,7 +93,11 @@ public class DriveDriver {
         driveMotorRB.setTargetPosition((int) Degree * -1);
         driveMotorRF.setTargetPosition((int) Degree * -1);
 
-
+        driveMotorLB.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+        driveMotorLF.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+        driveMotorRB.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+        driveMotorRF.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+        
         setMotors(power, power * -1);
     }
 
@@ -106,7 +110,8 @@ public class DriveDriver {
         driveMotorRB.setTargetPosition((int) targetDist);
         driveMotorRF.setTargetPosition((int) targetDist);
 
-        while (distTraveled < targetDist) {
+        while (distTraveled < targetDist)
+        {
             if (distTraveled < targetDist * 0.5 && speedGoing < maxSpeed) {
                 speedGoing = speedGoing + 0.1;
                 if (speedGoing == maxSpeed) {

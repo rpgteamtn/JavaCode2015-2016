@@ -12,6 +12,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.DriveDriver;
 import com.qualcomm.ftcrobotcontroller.opmodes.AutoOpmodeStratagems;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorController;
 
 /**
  * Created by Jonah on 10/31/2015.
@@ -23,6 +25,10 @@ public class RPGautoOpmode extends LinearOpMode {
     boolean climbers;
     boolean beacon;
     boolean start;// true is near mountain
+    DcMotor driveMotorLF;
+    DcMotor driveMotorLB;
+    DcMotor driveMotorRF;
+    DcMotor driveMotorRB;
     DriveDriver DriveDriver;
     AutoOpmodeStratagems AutoOpmodeStratagems;
 
@@ -66,6 +72,7 @@ public class RPGautoOpmode extends LinearOpMode {
         return blueAngle;
     }
 
+
     @Override
     public void runOpMode() throws InterruptedException {
         alliance=false;
@@ -75,10 +82,29 @@ public class RPGautoOpmode extends LinearOpMode {
         beacon=true;
         start=false;
 
+        driveMotorLB = hardwareMap.dcMotor.get("driveMotorLB");
+        driveMotorLF = hardwareMap.dcMotor.get("driveMotorLF");
+        driveMotorRF = hardwareMap.dcMotor.get("driveMotorRF");
+        driveMotorRB = hardwareMap.dcMotor.get("driveMotorRB");
+        //debrisServo = hardwareMap.servo.get("debrisServo");
+
+        DriveDriver = new DriveDriver(driveMotorLB, driveMotorLF, driveMotorRB, driveMotorRF);
+        driveMotorRF.setDirection(DcMotor.Direction.REVERSE);
+        driveMotorRB.setDirection(DcMotor.Direction.REVERSE);
+
+        driveMotorRB.setMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+        driveMotorRF.setMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+        driveMotorLB.setMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+        driveMotorLF.setMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+
+        waitForStart();
+
         if (alliance == true/*we are blue*/) {
             if (start == true)// near to mountain
             {
                 if ((climbers = true) || (beacon = true)) {
+
+
                     DriveDriver.moveDist(distI, power);
                     DriveDriver.turn(reverseAngle(angE), power);//ang I
                     DriveDriver.moveDist((distA+distB-distJ), power);
@@ -234,10 +260,8 @@ public class RPGautoOpmode extends LinearOpMode {
             } else// near to line
             {
                 if ((climbers == true) || (beacon == true)) {
-                    DriveDriver.moveDist((distA + distB), power);
-                    DriveDriver.turn(angB, power);// angle B
-                    DriveDriver.moveDist((distC + distE), power);
-
+                    //DriveDriver.moveDist((distA + distB), power);
+                    //DriveDriver.turn(angB, power);// angle B
                     if ((climbers == true) || (beacon == true)) {
                         //do climers and beacons
                     } else if ((climbers == false) || (beacon == true)) {
