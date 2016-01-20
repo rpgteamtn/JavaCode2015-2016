@@ -17,15 +17,15 @@ public class rpgTeleOp extends OpMode {
     DcMotor driveMotorRB;
     DcMotor debrisLiftMotor;
     DcMotor armMotor;
-    //Servo debrisServo;
+    Servo debrisServo;
 
     DriveDriver DriveDriver;
     int armMotorValue;
     double left;
     double right;
     float armPower;
-    float servoOpen = 100;
-    float servoClosed = 100;
+    float servoOpen = 0;
+    float servoClosed = 180;
     boolean OC;
     boolean servoSwitched = false;
 
@@ -51,7 +51,7 @@ public class rpgTeleOp extends OpMode {
         driveMotorRB = hardwareMap.dcMotor.get("driveMotorRB");
         armMotor = hardwareMap.dcMotor.get("armMotor");
         debrisLiftMotor = hardwareMap.dcMotor.get("debrisLiftMotor");
-        //debrisServo = hardwareMap.servo.get("debrisServo");
+        debrisServo = hardwareMap.servo.get("debrisServo");
 
         DriveDriver = new DriveDriver(driveMotorLB, driveMotorLF, driveMotorRB, driveMotorRF);
         driveMotorRF.setDirection(DcMotor.Direction.REVERSE);
@@ -107,16 +107,17 @@ public class rpgTeleOp extends OpMode {
         {
             debrisLiftMotor.setPower(0);
         }
-        /*if(gamepad2.a) {
+
+        if(gamepad2.a) {
             if(!servoSwitched){
             if(OC)
             {
-               // debrisServo.setPosition(servoClosed);
+                debrisServo.setPosition(servoClosed);
                 OC = false;
                 servoSwitched = true;
             }
             if(!OC) {
-                //debrisServo.setPosition(servoOpen);
+                debrisServo.setPosition(servoOpen);
                 OC = true;
                 servoSwitched = true;
             }
@@ -126,6 +127,5 @@ public class rpgTeleOp extends OpMode {
         {
             servoSwitched = false;
         }
-    }*/
     }
-}
+    }

@@ -1,5 +1,7 @@
 package com.qualcomm.ftcrobotcontroller.opmodes.Drivers;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by Jonah on 12/5/2015.
  */
@@ -22,4 +24,7 @@ public class Timer{
             sleepTime = wakeupTime - System.currentTimeMillis();
         }
     }
+public void sleepMill(int time)throws InterruptedException{
+    TimeUnit.MILLISECONDS.sleep(time);
+}
 }
