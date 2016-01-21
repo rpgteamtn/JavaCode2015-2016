@@ -3,6 +3,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes.Drivers;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
 //import com.qualcomm.ftcrobotcontroller.opmodes.other.PushBotHardware;
+import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.Timer;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,7 +23,8 @@ public class DriveDriver{
     double speedGoing;
     double maxSpeed = 0.7;
     double BreakPoint;
-
+    double encoders;
+    Timer timer =  new Timer();
     // this FUnction allows other programs to use the drive driver functions
     public DriveDriver(DcMotor lb, DcMotor lf, DcMotor rb, DcMotor rf) {
         driveMotorLB = lb;
@@ -63,7 +65,7 @@ public class DriveDriver{
     }
 
 //gets inputs of the distance IN INCHES and power and goes the distance you set at the power you set
-  public void moveDist (double Dist, double power)
+  /*public void moveDist (double Dist, double power)
   {
       setMotors(0, 0);
 
@@ -84,7 +86,7 @@ public class DriveDriver{
 
     //uses the function setMotors to set the motors to the power inputed into the function
     setMotors(1, 1);
-  }
+  }*/
 
     public void turn(double Degree, double power) throws InterruptedException {
         setMotors(0,0);
@@ -147,4 +149,16 @@ public class DriveDriver{
 
         setMotors(speedGoing, speedGoing);
     }*/
+    public void moveDist (double Dist, double power)
+    {
+        driveMotorLB.setPower(-1);
+        Dist = Dist/9*1440;
+        driveMotorLB.setPower(1);
+        encoders = 0;
+        resetEncoders();
+        while(Dist>encoders) {
+            encoders = ((driveMotorLB.getCurrentPosition()+driveMotorLF.getCurrentPosition()+driveMotorRB.getCurrentPosition()+driveMotorRF.getCurrentPosition())/4);
+            setMotors(power, power);
+        }
+    }
 }

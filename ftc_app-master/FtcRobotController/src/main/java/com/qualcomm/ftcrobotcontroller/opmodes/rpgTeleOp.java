@@ -18,16 +18,22 @@ public class rpgTeleOp extends OpMode {
     DcMotor debrisLiftMotor;
     DcMotor armMotor;
     Servo debrisServo;
+    Servo churroServo;
 
     DriveDriver DriveDriver;
     int armMotorValue;
     double left;
     double right;
+
     float armPower;
-    float servoOpen = 0;
-    float servoClosed = 180;
-    boolean OC;
-    boolean servoSwitched = false;
+
+    double debrisServoOpen = .37;//switch to 105 when the new string is attached
+    double debrisServoClosed = .07;
+    double churroServoOpen = 0;
+    double churroServoClosed = 1;
+
+    char debrisOC = 'C';
+    boolean debrisServoSwitched = false;
 
     double mediumPower = 0.75;
     double smallPower = 0.5;
@@ -39,6 +45,15 @@ public class rpgTeleOp extends OpMode {
     double CPR = 1440;
     double armLimit = rotations * CPR;
 
+    double triggerMargen = .8;
+    char churroOC = 'O';
+    boolean churroServoSwitched = false;
+
+ /* This does not work with the servos. Possibly too many digits after decimal point.
+    public double conversion(int servoValue) {
+        return servoValue = servoValue / 255;
+    }
+*/
     // Overrides previous function
     @Override
     public void init() {
@@ -52,6 +67,7 @@ public class rpgTeleOp extends OpMode {
         armMotor = hardwareMap.dcMotor.get("armMotor");
         debrisLiftMotor = hardwareMap.dcMotor.get("debrisLiftMotor");
         debrisServo = hardwareMap.servo.get("debrisServo");
+        churroServo = hardwareMap.servo.get("churroServo");
 
         DriveDriver = new DriveDriver(driveMotorLB, driveMotorLF, driveMotorRB, driveMotorRF);
         driveMotorRF.setDirection(DcMotor.Direction.REVERSE);
@@ -64,14 +80,14 @@ public class rpgTeleOp extends OpMode {
         // Sets values for joystick
         // Note: Applies to sides of robot not each motor
 
-       // if ((gamepad1.left_stick_y != 0) && (gamepad1.right_stick_y != 0)) {
-            left = -gamepad1.left_stick_y;
-            right = -gamepad1.right_stick_y;
-            // Sets power to each motor
-            // Automatically connects motors to joystick
-            DriveDriver.setMotors(left, right);
+        // if ((gamepad1.left_stick_y != 0) && (gamepad1.right_stick_y != 0)) {
+        left = -gamepad1.left_stick_y;
+        right = -gamepad1.right_stick_y;
+        // Sets power to each motor
+        // Automatically connects motors to joystick
+        DriveDriver.setMotors(left, right);
 
-           // if ((!gamepad1.right_bumper || !gamepad1.left_bumper)) {
+        // if ((!gamepad1.right_bumper || !gamepad1.left_bumper)) {
 
           /*  } else if (gamepad1.right_bumper) {
                 left = -gamepad1.left_stick_y;
@@ -84,12 +100,9 @@ public class rpgTeleOp extends OpMode {
 
             }*/
 
-        if ((Math.abs(armMotor.getCurrentPosition()) >= 5500)&& (-gamepad2.right_stick_y > 0))
-        {
+        if ((Math.abs(armMotor.getCurrentPosition()) >= 5500) && (-gamepad2.right_stick_y > 0)) {
             armMotor.setPower(0);
-        }
-        else
-        {
+        } else {
             armPower = -gamepad2.right_stick_y;
             armMotor.setPower(armPower); //when the stick is forward, arm goes forward
         }
@@ -97,35 +110,58 @@ public class rpgTeleOp extends OpMode {
 
         if (gamepad2.dpad_up) {
             debrisLiftMotor.setPower(1);
-        }
-        else if (gamepad2.dpad_down) {
+        } else if (gamepad2.dpad_down) {
 
             debrisLiftMotor.setPower(-1);
-        }
-
-        else
-        {
+        } else {
             debrisLiftMotor.setPower(0);
         }
 
-        if(gamepad2.a) {
-            if(!servoSwitched){
-            if(OC)
-            {
-                debrisServo.setPosition(servoClosed);
-                OC = false;
-                servoSwitched = true;
+        if ((gamepad2.a == true) && (debrisServoSwitched == false)) {
+            switch (debrisOC) {
+                case 'O':
+                    debrisServo.setPosition(debrisServoClosed);
+                    debrisServoSwitched = true;
+                    debrisOC = 'C';
+                    break;
+                case 'C':
+                    debrisServo.setPosition(debrisServoOpen);
+                    debrisServoSwitched = true;
+                    debrisOC = 'O';
+                    break;
+                default:
+                    debrisServo.setPosition(debrisServoClosed);
+                    debrisServoSwitched = true;
+                    debrisOC = 'C';
+                    break;
             }
-            if(!OC) {
-                debrisServo.setPosition(servoOpen);
-                OC = true;
-                servoSwitched = true;
+        }
+        if ((gamepad2.a == false) && (debrisServoSwitched = true)) {
+            debrisServoSwitched = false;
+        }
+
+
+            if ((gamepad1.right_trigger > triggerMargen) && (churroServoSwitched == false)) {
+                switch (churroOC) {
+                    case 'O':
+                        churroServo.setPosition(churroServoClosed);
+                        churroServoSwitched = true;
+                        churroOC = 'C';
+                        break;
+                    case 'C':
+                        churroServo.setPosition(churroServoOpen);
+                        churroServoSwitched = true;
+                        churroOC = 'O';
+                        break;
+                    default:
+                        churroServo.setPosition(churroServoClosed);
+                        churroServoSwitched = true;
+                        churroOC = 'C';
+                        break;
+                }
+            }
+            if ((gamepad1.right_trigger < triggerMargen) && (churroServoSwitched = true)) {
+                churroServoSwitched = false;
             }
         }
-        }
-        if((!gamepad2.a)&&(servoSwitched = true))
-        {
-            servoSwitched = false;
-        }
-    }
     }

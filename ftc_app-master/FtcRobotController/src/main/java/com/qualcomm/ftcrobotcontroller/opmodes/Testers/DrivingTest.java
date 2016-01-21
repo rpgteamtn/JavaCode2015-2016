@@ -34,7 +34,7 @@ public class DrivingTest extends LinearOpMode{
 waitForStart();
 
 
-    for (int x = 1;x<50;x++){
+    /*for (int x = 1;x<50;x++){
         driveDriver.setMotors(1, 1);
     DbgLog.msg(("loop 1: " + x));
         timer.sleepMill(100);
@@ -64,7 +64,11 @@ waitForStart();
         //driveDriver.moveDist(12, .7);
         //driveDriver.moveDist(12, .8);
         //driveDriver.moveDist(12, .9);
-        //driveDriver.moveDist(12, 1);
+        //driveDriver.moveDist(12, 1);*/
+        driveMotorLB.setPower(-1);
+        timer.sleepMill(4000);
+        driveMotorLB.setPower(0);
+        driveDriver.moveDist(9, .5);
     }
 
 }
