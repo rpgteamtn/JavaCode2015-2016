@@ -5,10 +5,9 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Jonah on 12/5/2015.
  */
-public class Timer{
+public class Timer {
 
-    public void Timer()
-    {
+    public void Timer() {
 
     }
 
@@ -24,7 +23,9 @@ public class Timer{
             sleepTime = wakeupTime - System.currentTimeMillis();
         }
     }
-public void sleepMill(int time)throws InterruptedException{
-    TimeUnit.MILLISECONDS.sleep(time);
-}
+
+    public void sleepMill(int time) throws InterruptedException {
+        TimeUnit.MILLISECONDS.sleep(time);
+
+    }
 }

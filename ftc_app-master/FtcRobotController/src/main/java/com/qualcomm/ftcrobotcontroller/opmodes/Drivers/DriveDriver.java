@@ -161,4 +161,18 @@ public class DriveDriver{
             setMotors(power, power);
         }
     }
+
+    public int distToTime(int dist)
+    {
+        return (dist/36)*1000;// add math
+    }
+
+    public void moveTime(int milliSeconds, double power)throws InterruptedException
+    {
+        setMotors(power,power);
+        timer.sleepMill(milliSeconds);
+        setMotors(0,0);
+    }
 }
+
+

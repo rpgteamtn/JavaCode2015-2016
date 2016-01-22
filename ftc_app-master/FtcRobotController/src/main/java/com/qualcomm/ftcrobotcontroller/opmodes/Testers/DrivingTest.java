@@ -6,32 +6,42 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.ftcrobotcontroller.opmodes.Drivers.Timer;
 import com.qualcomm.ftccommon.DbgLog;
+import com.qualcomm.robotcore.util.ElapsedTime;
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.lang.String;
 
 /**
  * Created by Jonah on 1/19/2016.
  */
 public class DrivingTest extends LinearOpMode{
-    @Override
-    public void runOpMode() throws InterruptedException {
+    String startDate;
+    ElapsedTime runtime = new ElapsedTime();
+    String RPGtime = new String("");
+    boolean overTen = false;
     DriveDriver driveDriver;
     DcMotor driveMotorLF;
     DcMotor driveMotorLB;
     DcMotor driveMotorRF;
     DcMotor driveMotorRB;
-    Timer timer =  new Timer();
+    DcMotor debrisLiftMotor;
+    Timer timer = new Timer();
     String thing;
 
-    driveMotorLB = hardwareMap.dcMotor.get("driveMotorLB");
-    driveMotorLF = hardwareMap.dcMotor.get("driveMotorLF");
-    driveMotorRF = hardwareMap.dcMotor.get("driveMotorRF");
-    driveMotorRB = hardwareMap.dcMotor.get("driveMotorRB");
-    //debrisServo = hardwareMap.servo.get("debrisServo");
+    @Override
+    public void runOpMode() throws InterruptedException {
+        driveMotorLB = hardwareMap.dcMotor.get("driveMotorLB");
+        driveMotorLF = hardwareMap.dcMotor.get("driveMotorLF");
+        driveMotorRF = hardwareMap.dcMotor.get("driveMotorRF");
+        driveMotorRB = hardwareMap.dcMotor.get("driveMotorRB");
+        debrisLiftMotor = hardwareMap.dcMotor.get("debrisLiftMotor");
+        //debrisServo = hardwareMap.servo.get("debrisServo");
 
-    driveDriver = new DriveDriver(driveMotorLB, driveMotorLF, driveMotorRB, driveMotorRF);
-    driveMotorRF.setDirection(DcMotor.Direction.REVERSE);
-    driveMotorRB.setDirection(DcMotor.Direction.REVERSE);
+        driveDriver = new DriveDriver(driveMotorLB, driveMotorLF, driveMotorRB, driveMotorRF);
+        driveMotorRF.setDirection(DcMotor.Direction.REVERSE);
+        driveMotorRB.setDirection(DcMotor.Direction.REVERSE);
 
-waitForStart();
 
 
     /*for (int x = 1;x<50;x++){
@@ -64,11 +74,12 @@ waitForStart();
         //driveDriver.moveDist(12, .7);
         //driveDriver.moveDist(12, .8);
         //driveDriver.moveDist(12, .9);
-        //driveDriver.moveDist(12, 1);*/
+        //driveDriver.moveDist(12, 1);
         driveMotorLB.setPower(-1);
         timer.sleepMill(4000);
         driveMotorLB.setPower(0);
-        driveDriver.moveDist(9, .5);
-    }
+        driveDriver.moveDist(9, .5);*/
 
+        driveDriver.moveTime(2000,1);
+    }
 }
