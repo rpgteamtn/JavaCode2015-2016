@@ -22,7 +22,7 @@ public class RPGautoOpmode2 extends LinearOpMode {
     Timer timer =  new Timer();
 
     int DistA=116;
-    int DistB=820;
+    int DistB=82;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -43,9 +43,7 @@ public class RPGautoOpmode2 extends LinearOpMode {
         debrisLiftMotor.setPower(1);
         if(start == true)
         {
-            driveDriver.setMotors(-1, -1);
-            timer.sleepMill(1000);
-            driveDriver.setMotors(0, 0);
+            driveDriver.moveTime(driveDriver.distToTime(DistB),-1);
         }
 
         else if(start == false)
@@ -59,5 +57,7 @@ public class RPGautoOpmode2 extends LinearOpMode {
         {
 
         }
+
+        debrisLiftMotor.setPower(0);
     }
 }

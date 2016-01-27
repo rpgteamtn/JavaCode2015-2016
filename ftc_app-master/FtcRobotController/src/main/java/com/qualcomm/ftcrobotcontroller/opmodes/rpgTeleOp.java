@@ -103,7 +103,7 @@ public class rpgTeleOp extends OpMode {
         if ((Math.abs(armMotor.getCurrentPosition()) >= 5500) && (-gamepad2.right_stick_y > 0)) {
             armMotor.setPower(0);
         } else {
-            armPower = -gamepad2.right_stick_y/2;
+            armPower = -gamepad2.right_stick_y;
             armMotor.setPower(armPower); //when the stick is forward, arm goes forward
         }
 
