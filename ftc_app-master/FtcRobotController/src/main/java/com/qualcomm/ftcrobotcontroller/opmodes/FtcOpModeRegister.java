@@ -75,7 +75,7 @@ public class FtcOpModeRegister implements OpModeRegister {
     //manager.register("RunTester", RunTester.class);
     manager.register("rpgTeleOp", rpgTeleOp.class);
    // manager.register("DebrisLiftDriver", DebrisLiftDriver.class);
-   // manager.register("DrivingTest", DrivingTest.class);
+   manager.register("DrivingTest", DrivingTest.class);
 
 
 
