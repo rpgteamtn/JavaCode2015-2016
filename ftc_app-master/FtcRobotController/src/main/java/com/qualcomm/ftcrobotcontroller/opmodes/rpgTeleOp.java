@@ -125,19 +125,19 @@ public class rpgTeleOp extends OpMode {
 
         if ((gamepad2.a == true) && (debrisServoSwitched == false)) {
             switch (debrisOC) {
-                LiftServo.setPosition(LiftServoClosed);
+                //LiftServo.setPosition(LiftServoClosed);
                 case 'O':
                     debrisServo.setPosition(debrisServoClosed);
                     debrisServoSwitched = true;
                     debrisOC = 'C';
                     break;
-                LiftServo.setPosition(LiftServoOpen);
+               // LiftServo.setPosition(LiftServoOpen);
                 case 'C':
                     debrisServo.setPosition(debrisServoOpen);
                     debrisServoSwitched = true;
                     debrisOC = 'O';
                     break;
-                LiftServo.setPosition(LiftServoClosed);
+                //LiftServo.setPosition(LiftServoClosed);
                 default:
                     debrisServo.setPosition(debrisServoClosed);
                     debrisServoSwitched = true;
@@ -151,19 +151,19 @@ public class rpgTeleOp extends OpMode {
 
             if ((gamepad1.right_trigger > triggerMargen) && (churroServoSwitched == false)) {
                 switch (churroOC) {
-                    DoorServo.setPosition(DoorServoClosed);
+                    //DoorServo.setPosition(DoorServoClosed);
                     case 'O':
                         churroServo.setPosition(churroServoClosed);
                         churroServoSwitched = true;
                         churroOC = 'C';
                         break;
-                    DoorServo.setPosition(DoorServoOpen);
+                   // DoorServo.setPosition(DoorServoOpen);
                     case 'C':
                         churroServo.setPosition(churroServoOpen);
                         churroServoSwitched = true;
                         churroOC = 'O';
                         break;
-                    DoorServo.setPosition(DoorServoClosed);
+                  //  DoorServo.setPosition(DoorServoClosed);
                     default:
                         churroServo.setPosition(churroServoClosed);
                         churroServoSwitched = true;
