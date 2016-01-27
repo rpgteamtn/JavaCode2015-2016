@@ -19,6 +19,8 @@ public class rpgTeleOp extends OpMode {
     DcMotor armMotor;
     Servo debrisServo;
     Servo churroServo;
+    Servo LiftServo;
+    Servo DoorServo;
 
     DriveDriver DriveDriver;
     int armMotorValue;
@@ -29,6 +31,10 @@ public class rpgTeleOp extends OpMode {
 
     double debrisServoOpen = .37;//switch to 105 when the new string is attached
     double debrisServoClosed = .07;
+    double LiftServoOpen = .37;
+    double LiftServoClosed = .07;
+    double DoorServoOpen = 0;
+    double DoorServoClosed = 1;
     double churroServoOpen = 0;
     double churroServoClosed = 1;
 
@@ -119,16 +125,19 @@ public class rpgTeleOp extends OpMode {
 
         if ((gamepad2.a == true) && (debrisServoSwitched == false)) {
             switch (debrisOC) {
+                LiftServo.setPosition(LiftServoClosed);
                 case 'O':
                     debrisServo.setPosition(debrisServoClosed);
                     debrisServoSwitched = true;
                     debrisOC = 'C';
                     break;
+                LiftServo.setPosition(LiftServoOpen);
                 case 'C':
                     debrisServo.setPosition(debrisServoOpen);
                     debrisServoSwitched = true;
                     debrisOC = 'O';
                     break;
+                LiftServo.setPosition(LiftServoClosed);
                 default:
                     debrisServo.setPosition(debrisServoClosed);
                     debrisServoSwitched = true;
@@ -140,25 +149,28 @@ public class rpgTeleOp extends OpMode {
             debrisServoSwitched = false;
         }
 
-
             if ((gamepad1.right_trigger > triggerMargen) && (churroServoSwitched == false)) {
                 switch (churroOC) {
+                    DoorServo.setPosition(DoorServoClosed);
                     case 'O':
                         churroServo.setPosition(churroServoClosed);
                         churroServoSwitched = true;
                         churroOC = 'C';
                         break;
+                    DoorServo.setPosition(DoorServoOpen);
                     case 'C':
                         churroServo.setPosition(churroServoOpen);
                         churroServoSwitched = true;
                         churroOC = 'O';
                         break;
+                    DoorServo.setPosition(DoorServoClosed);
                     default:
                         churroServo.setPosition(churroServoClosed);
                         churroServoSwitched = true;
                         churroOC = 'C';
                         break;
                 }
+
             }
             if ((gamepad1.right_trigger < triggerMargen) && (churroServoSwitched = true)) {
                 churroServoSwitched = false;
