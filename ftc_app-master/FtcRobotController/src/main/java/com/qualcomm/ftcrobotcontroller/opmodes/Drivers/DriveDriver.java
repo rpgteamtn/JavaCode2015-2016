@@ -177,7 +177,7 @@ public class DriveDriver{
 
     public void moveTimeDist(int dist)throws InterruptedException
     {
-        dist = dist / 23;// takes dist into and converts it into seconds
+        dist = dist / 16;// takes dist into and converts it into seconds
         dist = dist*1000;// take dist in seconds and converts it into milliseconds
         setMotors(1,1);
         timer.sleepMill(dist);
@@ -185,7 +185,7 @@ public class DriveDriver{
     }
 
     public void moveTimeDist(int dist, boolean back)throws InterruptedException {
-            dist = dist / 23;// takes dist into and converts it into seconds
+            dist = dist / 16;// takes dist into and converts it into seconds
             dist = dist*1000;// take dist in seconds and converts it into milliseconds
             setMotors(-1, -1);
             timer.sleepMill(dist);
