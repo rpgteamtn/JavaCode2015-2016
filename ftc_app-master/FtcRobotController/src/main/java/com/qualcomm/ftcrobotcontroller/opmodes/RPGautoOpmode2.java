@@ -43,14 +43,11 @@ public class RPGautoOpmode2 extends LinearOpMode {
         debrisLiftMotor.setPower(1);
         if(start == true)
         {
-            driveDriver.moveTime(driveDriver.distToTime(DistB),-1);
+            driveDriver.moveTimeDist(driveDriver.distToTime(DistB), true);
         }
 
-        else if(start == false)
-        {
-            driveDriver.setMotors(-1, -1);
-            timer.sleepMill(4000);
-            driveDriver.setMotors(0, 0);
+        else if(start == false) {
+            driveDriver.moveTimeDist(driveDriver.distToTime(DistA), true);
         }
 
         else

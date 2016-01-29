@@ -24,6 +24,7 @@ public class DriveDriver{
     double maxSpeed = 0.7;
     double BreakPoint;
     double encoders;
+    double power;
     Timer timer =  new Timer();
     // this FUnction allows other programs to use the drive driver functions
     public DriveDriver(DcMotor lb, DcMotor lf, DcMotor rb, DcMotor rf) {
@@ -173,6 +174,23 @@ public class DriveDriver{
         timer.sleepMill(milliSeconds);
         setMotors(0,0);
     }
-}
+
+    public void moveTimeDist(int dist)throws InterruptedException
+    {
+        dist = dist / 23;// takes dist into and converts it into seconds
+        dist = dist*1000;// take dist in seconds and converts it into milliseconds
+        setMotors(1,1);
+        timer.sleepMill(dist);
+        setMotors(0,0);
+    }
+
+    public void moveTimeDist(int dist, boolean back)throws InterruptedException {
+            dist = dist / 23;// takes dist into and converts it into seconds
+            dist = dist*1000;// take dist in seconds and converts it into milliseconds
+            setMotors(-1, -1);
+            timer.sleepMill(dist);
+            setMotors(0, 0);
+        }
+    }
 
 
