@@ -191,6 +191,24 @@ public class DriveDriver{
             timer.sleepMill(dist);
             setMotors(0, 0);
         }
+
+    public void turnTime(int degree, boolean clockwise)throws InterruptedException{
+        degree = degree*15;
+        if(clockwise = true)
+        {
+            setMotors(1, -1);
+            timer.sleepMill(degree);
+            setMotors(0, 0);
+        }
+        else if(clockwise = false) {
+            setMotors(-1, 1);
+            timer.sleepMill(degree);
+            setMotors(0, 0);
+        }
+        else {
+
+        }
+        }
     }
 
 

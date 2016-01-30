@@ -80,7 +80,11 @@ public class DrivingTest extends LinearOpMode{
         driveMotorLB.setPower(0);
         driveDriver.moveDist(9, .5);*/
         waitForStart();
-        driveDriver.moveTimeDist(46);
-        driveDriver.moveTimeDist(46,true);
+      //  driveDriver.moveTimeDist(46);
+      //  driveDriver.moveTimeDist(46,true);
+
+        driveDriver.turnTime(360, true);
+        driveDriver.turnTime(90, false);
+        driveDriver.turnTime(180, true);
     }
 }
